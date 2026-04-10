@@ -6,13 +6,10 @@ h1 {
     font-weight: bold;
 }
 
-body {
+body 
+{background-color: blanchedalmond;}
 
-     background-color: blanchedalmond;
-}
-
-li{text-align: center;
-  }
+li{text-align: center;}
 
 
 
