@@ -6,9 +6,10 @@ h1 {
     font-weight: bold;
 }
 
-body 
+body {
+    background-color:red;
 
-{background-color: blanchedalmond;}
+}
 
 ul{text-align:center;}
 
