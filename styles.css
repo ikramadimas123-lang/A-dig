@@ -10,16 +10,16 @@ h1 {
 ul {
     text-align: center;     
     list-style-type: none;   
-    padding: 0;              
-    margin: 0;
+    padding: 0;             
+    margin: 0 auto;          
+    width: 100%;             
 }
 
-/* Tambahkan ini agar menu Home, Product, Design berjejer rapi */
 ul li {
     display: inline-block;   
-    margin: 0 15px;          
+    margin: 0 15px;         
+    color: black;           
 }
-
 img {
     display: block;
     margin-left: auto;
