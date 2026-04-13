@@ -2,10 +2,11 @@
 
 
 h1 {
-    text-align: center;
+    text-align: left;
     font-family: "Times New Roman", serif;
-    font-weight: bold;
+    font-weight: normal;
     margin-bottom: 5px;
+    font-size: 15px;
 }
 
 ul {
