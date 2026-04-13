@@ -1,21 +1,27 @@
 /* Place your CSS styles in this file */
 
 
-h1 {text-align: center;
-    font-family: "Times new roman", sans-serif;
+h1 {
+    text-align: center;
+    font-family: "Times New Roman", serif;
     font-weight: bold;
 }
 
- ul {text-align: center;
-        padding: 0%
-    color: white;
-    list-style-type: none;
-   }
+ul {
+    text-align: center;     
+    list-style-type: none;   
+    padding: 0;              
+    margin: 0;
+}
+
+/* Tambahkan ini agar menu Home, Product, Design berjejer rapi */
+ul li {
+    display: inline-block;   
+    margin: 0 15px;          
+}
 
 img {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
-
-
