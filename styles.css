@@ -27,3 +27,11 @@ img {
     margin-right: auto;
     margin-top: 0;
 }
+
+marquee {
+    height: 100px;
+    width: 100%;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 100px;
+}
