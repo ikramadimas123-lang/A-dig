@@ -10,9 +10,8 @@ h1 {
 ul {
     text-align: center;     
     list-style-type: none;   
-    padding: 20px 0;             
-    margin: 0 auto;          
-    width: 100%;
+    padding: 0;             
+    margin: 0;          
     height: 400
 }
 
@@ -21,6 +20,7 @@ ul li {
     margin: 0 20px;         
     color: black;           
 }
+
 img {
     display: block;
     margin-left: auto;
