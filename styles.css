@@ -7,12 +7,7 @@ h1 {
     font-weight: bold;
 }
 
-body {
-
-     background-color: blanchedalmond;
-}
-
-ul {text-align: center;}
+li a {text-align: center;}
 
 img {
     display: block;
