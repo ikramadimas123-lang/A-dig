@@ -38,11 +38,9 @@ marquee {
 }
 
 .aa {
-    position: absolute;
-  top: 0px;
-    right: 0px;
+  right: 0px;
   width: 300px;
-  padding: 10px;
+    padding: 10px
 }
 
 .bb {
@@ -54,4 +52,5 @@ marquee {
 .cc {
     top: 50px;
     width: 300px;
+}
     
