@@ -18,11 +18,11 @@ ul {
     text-indent: 40px
 }
 
-ul li {
+/* ul li {
     display: inline-block;   
     margin: 0;         
     color: black;           
-}
+} */
 
 img {
     display: block;
