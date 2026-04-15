@@ -37,14 +37,14 @@ marquee {
     line-height: 100px;
 }
 
-.bb {
-  right: 0px;
+.aa {
+  top: 0px;
   width: 300px;
-    padding: 10px
+    padding: 10px;
 }
 
 .aa {
-  top: 0px;
+  right: 0px;
   width: 300px;
   padding: 10px;
 }
