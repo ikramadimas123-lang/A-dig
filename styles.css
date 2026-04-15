@@ -50,7 +50,12 @@ marquee {
 }
 
 .cc {
-    top: 50px;
+    top: 0px;
     width: 300px;
+    padding: 50px;
 }
     
+div h2 {
+    left: 0px;
+    width: 300px;
+    padding: 30px;
