@@ -39,8 +39,7 @@ marquee {
 
 .aa {
     position: absolute;
-  right: 0px;
+  top: 0px;
   width: 300px;
-  border: 3px solid green;
   padding: 10px;
 }
