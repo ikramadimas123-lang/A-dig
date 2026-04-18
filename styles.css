@@ -37,11 +37,11 @@ marquee {
     line-height: 100px;
 }
 
-.aa {
+/* .aa {
   top: 0px;
   width: 300px;
     padding: 10px;
-}
+} */
 
 .aa ul {
   top: 0px;
@@ -54,4 +54,30 @@ marquee {
     top: 0px;
     width: 300px;
     padding: 50px;
+}
+
+.aa {
+    display: flex;              
+    justify-content: space-between; 
+    align-items: center;         
+    padding: 10px 50px;          
+    background-color: #ffffff;    
+}
+
+.aa h1 {
+    margin: 0;
+}
+
+.aa ul {
+    display: flex;               
+    list-style: none;            
+    margin: 0;
+    padding: 0;
+    gap: 20px;                   
+}
+
+.aa ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
 }
