@@ -50,11 +50,11 @@ marquee {
     right: 0px;
 } */
 
-.cc {
+/* .cc {
     top: 0px;
     width: 300px;
     padding: 50px;
-}
+} */
 
 .aa {
     display: flex;              
@@ -85,4 +85,37 @@ marquee {
     font-weight: bold;
     font-size: 25px; 
     transition: 0.3s; 
+}
+
+.cc {
+    padding-left: 50px; 
+    margin-top: 20px;
+    display: flex;      
+    align-items: baseline; 
+    gap: 15px;          
+}
+
+.cc h2, .cc h3, .cc h4, .cc h5 {
+    display: inline;    
+    margin: 0;          
+}
+
+.cc h2 {
+    font-size: 50px;
+    color: #FF5733;
+}
+
+.cc h3 {
+    font-size: 45px;
+    color: #33FF57; 
+}
+
+.cc h4 {
+    font-size: 40px;
+    color: #3357FF; 
+}
+
+.cc h5 {
+    font-size: 35px;
+    color: #F033FF; 
 }
