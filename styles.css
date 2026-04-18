@@ -80,7 +80,7 @@
     gap: 20px;                   
 }
 
-.aa ul li a {
+.aa ul li {
     text-decoration: none;
     color: black;
     font-weight: bold;
