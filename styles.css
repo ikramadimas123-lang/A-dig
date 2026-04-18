@@ -87,7 +87,7 @@ marquee {
     transition: 0.3s; 
 }
 
-.cc {
+.bb {
     padding-left: 50px; 
     margin-top: 20px;
     display: flex;      
@@ -95,27 +95,27 @@ marquee {
     gap: 15px;          
 }
 
-.cc h2, .cc h3, .cc h4, .cc h5 {
+.bb h2, .bb h3, .bb h4, .bb h5 {
     display: inline;    
     margin: 0;          
 }
 
-.cc h2 {
+.bb h2 {
     font-size: 50px;
     color: #FF5733;
 }
 
-.cc h3 {
+.bb h3 {
     font-size: 45px;
     color: #33FF57; 
 }
 
-.cc h4 {
+.bb h4 {
     font-size: 40px;
     color: #3357FF; 
 }
 
-.cc h5 {
+.bb h5 {
     font-size: 35px;
     color: #F033FF; 
 }
