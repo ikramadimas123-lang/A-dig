@@ -107,3 +107,37 @@
 .bb h3 { font-size: 45px; color: #33FF57; }
 .bb h4 { font-size: 40px; color: #3357FF; }
 .bb h5 { font-size: 35px; color: #F033FF; }
+
+.cc {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;                      
+    padding: 50px;                  
+}
+
+.cc1 {
+    border: 2px solid #000;         
+    padding: 20px;
+    border-radius: 10px;            
+    background-color: #f9f9f9;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1); 
+    transition: transform 0.3s;
+}
+
+.cc1:hover {
+    transform: translateY(-5px);    
+    border-color: #FF5733;          
+}
+
+.cc1 h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .cc {
+        grid-template-columns: 1fr;
+    }
+}
