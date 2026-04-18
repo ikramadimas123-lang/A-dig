@@ -66,7 +66,7 @@ marquee {
 
 .aa h1 {
     margin: 0;
-    font-size: 48px; 
+    font-size: 35px; 
     font-weight: bold;
     color: #000;
 }
@@ -83,6 +83,6 @@ marquee {
     text-decoration: none;
     color: black;
     font-weight: bold;
-    font-size: 20px; 
+    font-size: 25px; 
     transition: 0.3s; 
 }
