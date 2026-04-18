@@ -62,6 +62,7 @@
     align-items: center;         
     padding: 10px 50px;          
     background-color: #ffffff;    
+    border-bottom: 1px solid #eee;
 }
 
 .aa h1 {
@@ -89,33 +90,20 @@
 
 .bb {
     padding-left: 50px; 
-    margin-top: 20px;
+    margin-top: 40px;
     display: flex;      
+    flex-wrap: wrap;
     align-items: baseline; 
     gap: 15px;          
 }
 
 .bb h2, .bb h3, .bb h4, .bb h5 {
     display: inline;    
-    margin: 0;          
+    margin: 0;     
+    white-space: nowrap;
 }
-
-.bb h2 {
-    font-size: 50px;
-    color: #FF5733;
-}
-
-.bb h3 {
-    font-size: 45px;
-    color: #33FF57; 
-}
-
-.bb h4 {
-    font-size: 40px;
-    color: #3357FF; 
-}
-
-.bb h5 {
-    font-size: 35px;
-    color: #F033FF; 
-}
+    
+.bb h2 { font-size: 50px; color: #FF5733; }
+.bb h3 { font-size: 45px; color: #33FF57; }
+.bb h4 { font-size: 40px; color: #3357FF; }
+.bb h5 { font-size: 35px; color: #F033FF; }
