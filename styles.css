@@ -56,6 +56,8 @@
     padding: 50px;
 } */
 
+@media (max-width: 768px) {
+
 .aa {
     display: flex;              
     justify-content: space-between; 
@@ -65,12 +67,7 @@
     border-bottom: 1px solid #eee;
 }
 
-.aa h1 {
-    margin: 0;
-    font-size: 35px; 
-    font-weight: bold;
-    color: #000;
-}
+
 
 .aa ul {
     display: flex;               
@@ -110,18 +107,28 @@
 
 .cc {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px; 
     padding: 80px 10%; 
     background-color: #fff;
 }
 
+.cc1 h3 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+    border: none; 
+}
+}
+    
 .cc1 {
     border: none; 
     border-top: 1px solid #eaeaea; 
-    padding: 30px 0; 
+    padding: 30px 20px; 
     background-color: transparent; 
     box-shadow: none; 
+    text-align: left;
     transition: all 0.4s ease;
 }
 
@@ -139,13 +146,6 @@
     border-top: 1px solid #000; 
 }
 
-.cc1 h3 {
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #1a1a1a;
-    border: none; 
-}
 
 .cc1 p {
     font-size: 18px;
@@ -154,11 +154,9 @@
     padding: 0; 
 }
 
-@media (max-width: 768px) {
     .cc {
         grid-template-columns: 1fr;
     }
-}
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 
@@ -166,4 +164,11 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #ffffff;
     color: #1a1a1a;
+}
+
+    .aa h1 {
+    margin: 0;
+    font-size: 35px; 
+    font-weight: bold;
+    color: #000;
 }
