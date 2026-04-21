@@ -104,10 +104,10 @@
     white-space: nowrap;
 }
     
-.bb h2 { font-size: 50px; color: #FF5733; }
-.bb h3 { font-size: 45px; color: #33FF57; }
-.bb h4 { font-size: 40px; color: #3357FF; }
-.bb h5 { font-size: 35px; color: #F033FF; }
+.bb h2 { font-size: 50px; color: #2AFF00; }
+.bb h3 { font-size: 45px; color: #000000; }
+.bb h4 { font-size: 40px; color: #B3AFAF; }
+.bb h5 { font-size: 35px; color: #B3AFAF; }
 
 .cc {
     display: grid;
