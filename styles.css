@@ -81,7 +81,7 @@
     transition: 0.3s; 
 }
 
-.aa ul li a:hover {
+.aa ul li a :hover {
     color: #888; 
 }
 
@@ -216,6 +216,7 @@ body {
     color: #FF5733;
 }
 
-.dd1:hover .dropdown-content {
+.dd1:hover .ee2 {
     display: block; 
+    position: absolute;
 }
