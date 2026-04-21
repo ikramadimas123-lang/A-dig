@@ -95,7 +95,7 @@
 
 .bb {
     padding-left: 200px; 
-    margin-top: 500px;
+    margin-top: 250px;
     display: flex;      
     flex-direction: column; 
     gap: 10px;              
@@ -111,7 +111,7 @@
 .bb h2 { font-size: 25px; color: #2AFF00; margin-bottom: 10px; }
 .bb h3 { font-size: 45px; color: #000000; margin-bottom: 8px; }
 .bb h4 { font-size: 25px; color: #696969; margin-bottom: 15px; }
-.bb h5 { font-size: 20px; color: #696969; }
+.bb h5 { font-size: 20px; color: #696969; margin-bottom: 250px; }
 
 .cc {
     display: grid;
