@@ -73,12 +73,16 @@
     gap: 20px;                   
 }
 
-.aa ul li {
+.aa ul li a {
     text-decoration: none;
     color: black;
     font-weight: bold;
     font-size: 25px; 
     transition: 0.3s; 
+}
+
+.aa ul li a:hover {
+    color: #888; 
 }
 
   .aa h1 {
