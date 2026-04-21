@@ -111,7 +111,7 @@
 
 .cc {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 40px; 
     padding: 80px 10%; 
     background-color: #fff;
@@ -128,10 +128,9 @@
 .cc1 {
     border: none; 
     border-top: 1px solid #eaeaea; 
-    padding: 30px 20px; 
+    padding: 30px 0; 
     background-color: transparent; 
     box-shadow: none; 
-    text-align: left;
     transition: all 0.4s ease;
 }
 
