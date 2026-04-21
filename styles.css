@@ -81,7 +81,7 @@
     transition: 0.3s; 
 }
 
-.aa ul li a :hover {
+.aa ul li a:hover {
     color: #888; 
 }
 
@@ -180,6 +180,7 @@ body {
     align-items: center;
     gap: 8px;
     position: relative; 
+    height: 100%;
 }
 
 .dd1 {
@@ -200,6 +201,7 @@ body {
     padding: 10px 0;
     border: 1px solid #eee;
     border-radius: 4px;
+    list-style: none;
 }
 
 .ee2 li a {
@@ -216,7 +218,7 @@ body {
     color: #FF5733;
 }
 
-.dd1:hover .ee2 {
+.dd:hover .ee2 {
     display: block;
 }
 
