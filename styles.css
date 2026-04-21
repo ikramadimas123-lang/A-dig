@@ -170,3 +170,24 @@ body {
     background-color: #ffffff;
     color: #1a1a1a;
 }
+
+.dd {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dd1 {
+    cursor: pointer;
+    font-size: 25px; 
+    padding: 0 5px;
+    color: black;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.dd1:hover {
+    color: #888; 
+    background-color: #f0f0f0; 
+    border-radius: 50%;
+}
