@@ -108,9 +108,9 @@
     white-space: normal; 
 }
     
-.bb h2 { font-size: 25px; color: #2AFF00; margin-bottom: 10px; }
-.bb h3 { font-size: 45px; color: #000000; margin-bottom: 8px; }
-.bb h4 { font-size: 25px; color: #696969; margin-bottom: 15px; }
+.bb h2 { font-size: 25px; color: #2AFF00; margin-bottom: 6px; }
+.bb h3 { font-size: 45px; color: #000000; margin-bottom: 6px; }
+.bb h4 { font-size: 25px; color: #696969; margin-bottom: 25px; }
 .bb h5 { font-size: 20px; color: #696969; margin-bottom: 250px; }
 
 .cc {
