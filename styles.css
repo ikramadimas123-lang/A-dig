@@ -220,3 +220,10 @@ body {
     display: block; 
     position: absolute;
 }
+
+.ff {
+    width: 100%;
+    max-width: 900px; 
+    margin: 40px auto; 
+    padding: 0 20px;   
+}
