@@ -99,9 +99,9 @@
 }
 
 .bb h2, .bb h3, .bb h4, .bb h5 {
-    display: inline;    
-    margin: 0;     
-    white-space: nowrap;
+    display: block;    
+    margin-bottom: 10px;     
+    white-space: normal;
 }
     
 .bb h2 { font-size: 50px; color: #2AFF00; }
