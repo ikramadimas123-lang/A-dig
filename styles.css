@@ -174,16 +174,16 @@ body {
 .dd {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
 }
 
 .dd1 {
     cursor: pointer;
-    font-size: 25px; 
-    padding: 0 5px;
+    font-size: 24px; 
     color: black;
     transition: 0.3s;
     font-weight: bold;
+    line-height: 1;
 }
 
 .dd1:hover {
