@@ -188,7 +188,7 @@ body {
     padding: 10px 0;
 }
 
-.ee2 {
+.ee1 {
     display: none; 
     position: absolute;
     top: 100%; 
@@ -204,7 +204,7 @@ body {
     list-style: none;
 }
 
-.ee2 li a {
+.ee1 li a {
     color: black;
     padding: 8px 16px;
     text-decoration: none;
