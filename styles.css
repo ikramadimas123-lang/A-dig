@@ -227,7 +227,7 @@ body {
     }
 }
 
-.cc1 .card-text .label h3 {
+/* .cc1 .card-text .label h3 {
     background-image: url('content.jpg'); /* Ganti dengan nama file foto Anda */
     background-size: cover;       /* Memastikan foto memenuhi seluruh area teks */
     background-position: center;  /* Memposisikan foto tepat di tengah */
@@ -309,4 +309,4 @@ body {
     border-radius: 6px;        
     display: inline-block;     
     margin-bottom: 10px;       
-}
+} */
