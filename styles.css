@@ -228,7 +228,37 @@ body {
 }
 
 .cc1 .card-text .label h3 {
-    background-image: url('nama_file_foto_1.jpg'); /* Ganti dengan nama file foto Anda */
+    background-image: url('content.jpg'); /* Ganti dengan nama file foto Anda */
+    background-size: cover;       /* Memastikan foto memenuhi seluruh area teks */
+    background-position: center;  /* Memposisikan foto tepat di tengah */
+    color: #ffffff;               /* Warna teks (ubah ke putih/warna kontras agar terbaca di atas foto) */
+    padding: 6px 12px;            /* Memberi ruang agak luas agar fotonya kelihatan */
+    border-radius: 4px;        
+    display: inline-block;     
+}
+
+.cc2 .card-text .label h3 {
+    background-image: url('web.jpg'); /* Ganti dengan nama file foto Anda */
+    background-size: cover;       /* Memastikan foto memenuhi seluruh area teks */
+    background-position: center;  /* Memposisikan foto tepat di tengah */
+    color: #ffffff;               /* Warna teks (ubah ke putih/warna kontras agar terbaca di atas foto) */
+    padding: 6px 12px;            /* Memberi ruang agak luas agar fotonya kelihatan */
+    border-radius: 4px;        
+    display: inline-block;     
+}
+
+.cc1 .card-text .label h3 {
+    background-image: url('app.jpg'); /* Ganti dengan nama file foto Anda */
+    background-size: cover;       /* Memastikan foto memenuhi seluruh area teks */
+    background-position: center;  /* Memposisikan foto tepat di tengah */
+    color: #ffffff;               /* Warna teks (ubah ke putih/warna kontras agar terbaca di atas foto) */
+    padding: 6px 12px;            /* Memberi ruang agak luas agar fotonya kelihatan */
+    border-radius: 4px;        
+    display: inline-block;     
+}
+
+.cc1 .card-text .label h3 {
+    background-image: url('design.webp'); /* Ganti dengan nama file foto Anda */
     background-size: cover;       /* Memastikan foto memenuhi seluruh area teks */
     background-position: center;  /* Memposisikan foto tepat di tengah */
     color: #ffffff;               /* Warna teks (ubah ke putih/warna kontras agar terbaca di atas foto) */
