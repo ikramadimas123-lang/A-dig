@@ -128,10 +128,9 @@ body {
     object-fit: cover;    /* Foto tetap aman, tidak akan gepeng */
 }
 
-/* --- STRUKTUR GRID KARTU PERKENALAN (CC) --- */
 .cc {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* KUNCI: Membuat grid selalu 2x2 (2 kolom) */
     gap: 40px; 
     padding: 60px 10%; 
     background-color: #fff;
@@ -222,24 +221,28 @@ body {
     padding: 0 20px;   
 }
 
-/* --- RESPONSIVE MOBILE (KEMBALI KE PENGATURAN AWAL ANDA) --- */
+/* --- RESPONSIVE MOBILE (KARTU TETAP KUNCI 2x2) --- */
 @media (max-width: 900px) {
     .hero-container {
-        flex-direction: column-reverse; /* Foto pindah ke atas teks saat di HP */
+        flex-direction: column-reverse; /* Foto hero pindah ke atas teks saat di HP */
         padding: 40px 20px;
         gap: 30px;
     }
+    
     .cc {
-        grid-template-columns: 1fr; /* Grid kartu menjadi 1 kolom saja di HP */
-        padding: 40px 20px;
+        /* grid-template-columns: 1fr; <-- DIHAPUS agar layout tidak berubah jadi 1 baris memanjang di HP */
+        padding: 40px 10px; /* Sedikit memperkecil padding samping di HP agar muat 2 kolom */
+        gap: 15px;          /* Memperkecil jarak antar kartu di HP */
     }
+    
     .cc1, .cc2, .cc3, .cc4 {
-        flex-direction: column-reverse; /* KEMBALI KORIDOR AWAL: Foto profil berada di atas teks saat di layar kecil */
-        align-items: flex-start;
-        padding: 20px 0;
+        flex-direction: column-reverse; /* Foto profil berada di atas teks saat di layar kecil */
+        align-items: center;            /* Foto diposisikan ke tengah kartu */
+        padding: 15px 0;
     }
+    
     .card-image {
-        align-self: center; /* Foto tetap di tengah saat posisi mobile */
+        align-self: center; 
         margin-bottom: 15px;
     }
 }
