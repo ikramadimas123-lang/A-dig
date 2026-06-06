@@ -237,6 +237,17 @@ body {
     display: inline-block;     
 }
 
+.cc1 .card-text h3 {
+    background-image: url('content.jpg'); /* Ganti dengan nama file foto Anda */
+    background-size: cover;       
+    background-position: center;  
+    color: #ffffff;               /* Ubah warna teks agar kontras dengan foto latar belakang */
+    padding: 10px 18px;           /* Memberi jarak dalam agar bidang foto lebih luas dan estetik */
+    border-radius: 6px;        
+    display: inline-block;     
+    margin-bottom: 10px;       
+}
+
 .cc2 .card-text .label h3 {
     background-image: url('web.jpg'); /* Ganti dengan nama file foto Anda */
     background-size: cover;       /* Memastikan foto memenuhi seluruh area teks */
@@ -245,6 +256,17 @@ body {
     padding: 6px 12px;            /* Memberi ruang agak luas agar fotonya kelihatan */
     border-radius: 4px;        
     display: inline-block;     
+}
+
+.cc2 .card-text h3 {
+    background-image: url('web.jpg'); /* Ganti dengan nama file foto Anda */
+    background-size: cover;       
+    background-position: center;  
+    color: #ffffff;               /* Ubah warna teks agar kontras dengan foto latar belakang */
+    padding: 10px 18px;           /* Memberi jarak dalam agar bidang foto lebih luas dan estetik */
+    border-radius: 6px;        
+    display: inline-block;     
+    margin-bottom: 10px;       
 }
 
 .cc3 .card-text .label h3 {
@@ -257,6 +279,17 @@ body {
     display: inline-block;     
 }
 
+.cc3 .card-text h3 {
+    background-image: url('app.jpg'); /* Ganti dengan nama file foto Anda */
+    background-size: cover;       
+    background-position: center;  
+    color: #ffffff;               /* Ubah warna teks agar kontras dengan foto latar belakang */
+    padding: 10px 18px;           /* Memberi jarak dalam agar bidang foto lebih luas dan estetik */
+    border-radius: 6px;        
+    display: inline-block;     
+    margin-bottom: 10px;       
+}
+
 .cc4 .card-text .label h3 {
     background-image: url('design.webp'); /* Ganti dengan nama file foto Anda */
     background-size: cover;       /* Memastikan foto memenuhi seluruh area teks */
@@ -265,4 +298,15 @@ body {
     padding: 6px 12px;            /* Memberi ruang agak luas agar fotonya kelihatan */
     border-radius: 4px;        
     display: inline-block;     
+}
+
+.cc4 .card-text h3 {
+    background-image: url('design.webp'); /* Ganti dengan nama file foto Anda */
+    background-size: cover;       
+    background-position: center;  
+    color: #ffffff;               /* Ubah warna teks agar kontras dengan foto latar belakang */
+    padding: 10px 18px;           /* Memberi jarak dalam agar bidang foto lebih luas dan estetik */
+    border-radius: 6px;        
+    display: inline-block;     
+    margin-bottom: 10px;       
 }
