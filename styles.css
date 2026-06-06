@@ -227,8 +227,7 @@ body {
     }
 }
 
-.cc1 .card-text .label, 
-.cc1 .card-text h3 {
+.cc1 .card-text { 
     background-image: url('content.jpg'); 
     background-size: cover;       
     background-position: center;  
@@ -236,47 +235,3 @@ body {
     border-radius: 6px;
     display: inline-block;
 }
-.cc1 .card-text .label { padding: 6px 12px; font-size: 13px; }
-.cc1 .card-text h3 { padding: 10px 18px; margin-bottom: 10px; font-size: 26px; }
-
-
-/* --- KARTU CC2 (WEB) --- */
-.cc2 .card-text .label, 
-.cc2 .card-text h3 {
-    background-image: url('web.jpg'); 
-    background-size: cover;       
-    background-position: center;  
-    color: #ffffff;               
-    border-radius: 6px;        
-    display: inline-block;     
-}
-.cc2 .card-text .label { padding: 6px 12px; font-size: 13px; }
-.cc2 .card-text h3 { padding: 10px 18px; margin-bottom: 10px; font-size: 26px; }
-
-
-/* --- KARTU CC3 (APP) --- */
-.cc3 .card-text .label, 
-.cc3 .card-text h3 {
-    background-image: url('app.jpg'); 
-    background-size: cover;       
-    background-position: center;  
-    color: #ffffff;               
-    border-radius: 6px;        
-    display: inline-block;     
-}
-.cc3 .card-text .label { padding: 6px 12px; font-size: 13px; }
-.cc3 .card-text h3 { padding: 10px 18px; margin-bottom: 10px; font-size: 26px; }
-
-
-/* --- KARTU CC4 (DESIGN) --- */
-.cc4 .card-text .label, 
-.cc4 .card-text h3 {
-    background-image: url('design.webp'); 
-    background-size: cover;       
-    background-position: center;  
-    color: #ffffff;               
-    border-radius: 6px;        
-    display: inline-block;     
-}
-.cc4 .card-text .label { padding: 6px 12px; font-size: 13px; }
-.cc4 .card-text h3 { padding: 10px 18px; margin-bottom: 10px; font-size: 26px; }
