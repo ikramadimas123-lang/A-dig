@@ -128,6 +128,21 @@ body {
     object-fit: cover;    /* Foto tetap aman, tidak akan gepeng */
 }
 
+Ada beberapa alasan mengapa tampilan kartu pertama (cc1) terlihat berantakan atau berbeda sendiri, serta mengapa posisi foto profil belum konsisten di sebelah kanan teks.
+
+🔍 Penyebab Masalah pada Kode Anda
+Nama Kelas yang Tertukar: Di dalam file CSS Anda, properti teks paragraf (font-size, line-height, dll.) ditulis menggunakan kelas .card. Padahal, di dalam file HTML Anda, tag paragraf tersebut tidak memiliki kelas .card, melainkan langsung berupa tag <p> di dalam .card-text.
+
+Duplikasi Kelas .card-text: Kelas .card-text ditulis berulang-ulang di bagian bawah sehingga menimpa pengaturan tata letak flexbox bawaan.
+
+Pemberian Background pada .card-text: Ketika .card-text diberi background gambar utuh, elemen tersebut akan membesar dan bisa mendorong komponen .card-image keluar jalur jika tidak dikunci dengan flexbox yang tepat pada pembungkus utamanya.
+
+🛠️ Kode CSS yang Sudah Diperbaiki dan Dirapikan
+Gantikan seluruh kode CSS bagian STRUKTUR GRID KARTU PERKENALAN (CC) sampai ke bawah dengan kode bersih berikut ini.
+
+Kode ini sudah memperbaiki masalah cc1, memperbesar ukuran teks <p>, dan memastikan foto profil selalu terkunci rapi di sebelah kanan teks:
+
+CSS
 /* --- STRUKTUR GRID KARTU PERKENALAN (CC) --- */
 .cc {
     display: grid;
@@ -137,70 +152,84 @@ body {
     background-color: #fff;
 }
 
-.cc1 {
-    display: flex; /* Membuat teks berada di kiri dan foto di kanan di dalam kartu */
+/* Base class untuk semua kartu (cc1, cc2, cc3, cc4) */
+.cc1, .cc2, .cc3, .cc4 {
+    display: flex;             /* Membuat teks di kiri dan foto di kanan */
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid #eaeaea; 
     padding: 30px 0; 
-    gap: 20px;
+    gap: 25px;
     transition: all 0.4s ease;
 }
 
-.cc1:hover {
+.cc1:hover, .cc2:hover, .cc3:hover, .cc4:hover {
     transform: translateX(10px); 
     border-top: 1px solid #000; 
 }
 
+/* --- BLOK TEKS DENGAN BACKGROUND GAMBAR UTUH --- */
 .card-text {
-    flex: 2; /* Bagian teks mendapatkan area lebih besar */
+    flex: 2;                   /* Mengambil porsi ruang lebih besar di kiri */
+    padding: 25px;             /* Memberi ruang dalam agar teks tidak menempel ke tepi gambar */
+    border-radius: 12px;       /* Sudut melengkung halus yang estetik */
+    background-size: cover;       
+    background-position: center;  
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.card {
-    flex: 2; /* Bagian teks mendapatkan area lebih besar */
+/* Memaksa seluruh elemen teks di dalam kartu bermigrasi ke warna putih agar terbaca */
+.card-text h3, 
+.card-text .label, 
+.card-text p {
+    color: #ffffff !important; 
 }
 
+.card-text .label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
 
 .card-text h3 {
     font-size: 26px;
     font-weight: 600;
-    margin: 0 0 10px 0;
-    color: #1a1a1a;
+    margin: 0 0 12px 0;
 }
 
-.label {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #888;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.card {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #555;
+/* UKURAN TEKS PARAGRAF (P) SUDAH DIPERBESAR */
+.card-text p {
+    font-size: 18px;           /* Diperbesar dari 16px ke 18px */
+    line-height: 1.7;          /* Jarak antar baris kalimat lebih renggang dan nyaman dibaca */
     margin: 0;
     text-align: justify;
 }
 
-/* Mengatur wadah foto bulat agar teks tidak menabrak */
+/* --- WADAH FOTO PROFIL (DI SEBELAH KANAN TEKS) --- */
 .card-image {
-    flex: 1; /* Memastikan foto mendapatkan porsi ruang tetap di kanan */
+    flex: 1;                   /* Porsi ruang tetap dan seimbang di sebelah kanan */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .card-image img {
-    width: 130px; /* Ukuran lingkaran foto profil */
-    height: 130px;
-    border-radius: 50%; /* Membuat foto berbentuk bulat sempurna */
-    object-fit: cover; /* Mencegah foto gepeng */
-    border: 3px solid #eee;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+    width: 140px;              /* Sedikit disesuaikan ukurannya */
+    height: 140px;
+    border-radius: 50%;        /* Bulat sempurna */
+    object-fit: cover;         
+    border: 4px solid #eee;
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
 }
+
+/* --- DISTRIBUSI GAMBAR BACKGROUND MASING-MASING KARTU --- */
+.cc1 .card-text { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('content.jpg'); }
+.cc2 .card-text { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('web.jpg'); }
+.cc3 .card-text { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('app.jpg'); }
+.cc4 .card-text { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('design.webp'); }
 
 /* --- EMBED CANVA --- */
 .ff {
@@ -213,41 +242,20 @@ body {
 /* --- RESPONSIVE MOBILE --- */
 @media (max-width: 900px) {
     .hero-container {
-        flex-direction: column-reverse; /* Foto pindah ke atas teks saat di HP */
+        flex-direction: column-reverse; 
         padding: 40px 20px;
         gap: 30px;
     }
     .cc {
-        grid-template-columns: 1fr; /* Grid kartu menjadi 1 kolom saja di HP */
+        grid-template-columns: 1fr; 
         padding: 40px 20px;
     }
-    .cc1 {
-        flex-direction: column-reverse; /* Foto profil berada di atas teks saat di layar kecil */
-        align-items: flex-start;
+    .cc1, .cc2, .cc3, .cc4 {
+        flex-direction: column;        /* Mengatur susunan ke bawah secara berurutan di HP */
+        align-items: center;
         padding: 20px 0;
     }
     .card-image {
-        align-self: center; /* Foto tetap di tengah saat posisi mobile */
-        margin-bottom: 15px;
+        margin-top: 15px;              /* Jarak foto profil saat berada di bawah teks pada layar HP */
     }
 }
-
-.card-text {
-    flex: 2;
-    padding: 20px;            /* Memberi ruang di dalam bidang background agar teks tidak menempel ke tepi */
-    border-radius: 8px;       /* Membuat sudut background melengkung halus */
-    background-size: cover;       
-    background-position: center;  
-    color: #ffffff !important;/* Memaksa semua teks di dalamnya menjadi warna putih */
-}
-
-/* Mengubah warna teks tag p dan label bawaan agar kontras di atas background */
-.card-text {
-    color: #ffffff !important; 
-}
-
-/* --- DISTRIBUSI GAMBAR BACKGROUND MASING-MASING KARTU --- */
-.cc1 .card-text { background-image: url('content.jpg'); }
-.cc2 .card-text { background-image: url('web.jpg'); }
-.cc3 .card-text { background-image: url('app.jpg'); }
-.cc4 .card-text { background-image: url('design.webp'); }
