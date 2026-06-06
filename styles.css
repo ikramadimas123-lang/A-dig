@@ -121,8 +121,8 @@ body {
 
 .hero-img {
     width: 100%;
-    max-width: 320px;     /* Diperkecil dari 400px ke 320px */
-    height: 180px;        /* Diperkecil dari 250px ke 180px agar aspek rasio lebih lebar/landscape */
+    max-width: 400px;     /* Diperkecil dari 400px ke 320px */
+    height: 250px;        /* Diperkecil dari 250px ke 180px agar aspek rasio lebih lebar/landscape */
     border-radius: 12px;
     box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
     object-fit: cover;    /* Foto tetap aman, tidak akan gepeng */
