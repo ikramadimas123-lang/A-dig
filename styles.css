@@ -156,6 +156,11 @@ body {
     flex: 2; /* Bagian teks mendapatkan area lebih besar */
 }
 
+.card {
+    flex: 2; /* Bagian teks mendapatkan area lebih besar */
+}
+
+
 .card-text h3 {
     font-size: 26px;
     font-weight: 600;
@@ -172,7 +177,7 @@ body {
     margin-bottom: 10px;
 }
 
-.card-text p {
+.card {
     font-size: 16px;
     line-height: 1.6;
     color: #555;
@@ -237,7 +242,7 @@ body {
 }
 
 /* Mengubah warna teks tag p dan label bawaan agar kontras di atas background */
-.card-text p, .card-text .label, .card-text h3 {
+.card-text {
     color: #ffffff !important; 
 }
 
