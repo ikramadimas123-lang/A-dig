@@ -227,11 +227,22 @@ body {
     }
 }
 
-.cc1 .card-text { 
-    background-image: url('content.jpg'); 
+.card-text {
+    flex: 2;
+    padding: 20px;            /* Memberi ruang di dalam bidang background agar teks tidak menempel ke tepi */
+    border-radius: 8px;       /* Membuat sudut background melengkung halus */
     background-size: cover;       
     background-position: center;  
-    color: #ffffff;               
-    border-radius: 6px;
-    display: inline-block;
+    color: #ffffff !important;/* Memaksa semua teks di dalamnya menjadi warna putih */
 }
+
+/* Mengubah warna teks tag p dan label bawaan agar kontras di atas background */
+.card-text p, .card-text .label, .card-text h3 {
+    color: #ffffff !important; 
+}
+
+/* --- DISTRIBUSI GAMBAR BACKGROUND MASING-MASING KARTU --- */
+.cc1 .card-text { background-image: url('content.jpg'); }
+.cc2 .card-text { background-image: url('web.jpg'); }
+.cc3 .card-text { background-image: url('app.jpg'); }
+.cc4 .card-text { background-image: url('design.webp'); }
