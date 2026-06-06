@@ -217,10 +217,10 @@ body {
 
 /* --- DISTRIBUSI GAMBAR BACKGROUND MASING-MASING KARTU --- */
 /* Menggunakan linear-gradient yang lebih tipis (0.2) agar gambar aslinya terlihat lebih cerah */
-.cc1 .card-text { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('content.jpg'); }
-.cc2 .card-text { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('web.jpg'); }
-.cc3 .card-text { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('app.jpg'); }
-.cc4 .card-text { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('design.webp'); }
+.cc1 .card-text .label h3 { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('content.jpg'); }
+.cc2 .card-text .label h3 { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('web.jpg'); }
+.cc3 .card-text .label h3 { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('app.jpg'); }
+.cc4 .card-text .label h3{ background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('design.webp'); }
 /* --- EMBED CANVA --- */
 .ff {
     width: 100%;
