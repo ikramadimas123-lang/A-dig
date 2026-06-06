@@ -65,6 +65,13 @@
     border-bottom: 1px solid #eee;
 }
 
+.aa h1 {
+    margin: 0;
+    font-size: 35px; 
+    font-weight: bold;
+    color: #000;
+}
+
 .aa ul {
     display: flex;               
     list-style: none;            
@@ -94,8 +101,8 @@
 
 
 .bb {
-    padding-left: 200px; 
-    margin-top: 300px;
+    padding-left: 10%; 
+    margin-top: 100px; 
     display: flex;      
     flex-direction: column; 
     gap: 10px;              
@@ -111,7 +118,7 @@
 .bb h2 { font-size: 25px; color: #2AFF00; margin-bottom: 6px; }
 .bb h3 { font-size: 45px; color: #000000; margin-bottom: 6px; }
 .bb h4 { font-size: 25px; color: #696969; margin-bottom: 25px; }
-.bb h5 { font-size: 20px; color: #696969; margin-bottom: 250px; }
+.bb h5 { font-size: 20px; color: #696969; margin-bottom: 50px; }
 
 .cc {
     display: grid;
@@ -165,6 +172,10 @@
     .cc {
         grid-template-columns: 1fr;
     }
+    .bb {
+        padding-left: 20px;
+        margin-top: 50px;
+    }
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
@@ -173,6 +184,7 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #ffffff;
     color: #1a1a1a;
+    margin: 0; 
 }
 
 /* .dd {
@@ -232,11 +244,31 @@ body {
 .li3 {
     display: none;
     position: absolute;
+    right: 0; 
+    top: 100%;
     background-color: #ffffff; 
     list-style: none;
-    padding: 10px;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-    margin: 0;
+    padding: 10px 0;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    margin: 5px 0 0 0;
+    border-radius: 6px;
+    min-width: 140px;
+    z-index: 100;
+}
+
+.li3 li a {
+    color: #333;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    font-weight: normal;
+    transition: 0.2s;
+}
+
+.li3 li a:hover {
+    background-color: #f5f5f5;
+    color: #2AFF00; 
 }
 
 .li1 {
@@ -244,18 +276,32 @@ body {
     display: inline-block;
 }
 
-.l1:hover .li3 {
+.li1:hover .li3 {
     display: block;
 }
 
 .nav1 {
     list-style: none;
     display: flex;
-    gap: 15px; /* Jarak antar menu */
+    gap: 20px; 
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .nav1 a {
     text-decoration: none;
     color: #333;
+}
+
+.nav1 > li > a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 20px; 
+    transition: 0.3s; 
+}
+
+.nav1 > li > a:hover {
+    color: #888; 
 }
