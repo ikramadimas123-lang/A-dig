@@ -228,3 +228,34 @@ body {
     margin: 40px auto; 
     padding: 0 20px;   
 }
+
+.li3 {
+    display: none;
+    position: absolute;
+    background-color: #ffffff; 
+    list-style: none;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    margin: 0;
+}
+
+.li1 {
+    position: relative;
+    display: inline-block;
+}
+
+.l1:hover .li3 {
+    display: block;
+}
+
+.nav1 {
+    list-style: none;
+    display: flex;
+    gap: 15px; /* Jarak antar menu */
+    align-items: center;
+}
+
+.nav1 a {
+    text-decoration: none;
+    color: #333;
+}
