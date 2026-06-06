@@ -98,7 +98,7 @@ body {
 }
 
 .bb {
-    flex: 1; /* Teks mengambil ruang kiri */
+    flex: 1; 
     display: flex;      
     flex-direction: column; 
     gap: 10px;              
@@ -114,29 +114,29 @@ body {
 .bb h5 { font-size: 18px; color: #555555; line-height: 1.6; }
 
 .hero-image-container {
-    flex: 1; /* Foto mengambil ruang kanan */
+    flex: 1; 
     display: flex;
     justify-content: center;
 }
 
 .hero-img {
     width: 100%;
-    max-width: 400px;     /* Diperkecil dari 400px ke 320px */
-    height: 250px;        /* Diperkecil dari 250px ke 180px agar aspek rasio lebih lebar/landscape */
+    max-width: 400px;     
+    height: 250px;        
     border-radius: 12px;
     box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
-    object-fit: cover;    /* Foto tetap aman, tidak akan gepeng */
+    object-fit: cover;    
 }
 
+/* --- GRID UTAMA KARTU (2X2) --- */
 .cc {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* KUNCI: Membuat grid selalu 2x2 (2 kolom) */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 40px; 
     padding: 60px 10%; 
     background-color: #fff;
 }
 
-/* Mengembalikan fungsi dasar: teks di kiri, foto di kanan */
 .cc1, .cc2, .cc3, .cc4 {
     display: flex; 
     justify-content: space-between;
@@ -154,14 +154,14 @@ body {
 
 /* --- BLOK TEKS DENGAN BACKGROUND GAMBAR UTUH --- */
 .card-text {
-    flex: 2;                   /* Bagian teks mendapatkan area lebih besar di kiri */
-    padding: 25px;             /* Memberi ruang dalam agar teks tidak menempel ke tepi */
+    flex: 2;                   
+    padding: 25px;             
     border-radius: 12px;       
     background-size: cover;       
     background-position: center;  
 }
 
-/* Memaksa warna teks menjadi putih agar kontras dengan background gambar */
+/* Menjamin tulisan di dalam background selalu putih kontras */
 .card-text h3, 
 .card-text .label, 
 .card-text p {
@@ -182,7 +182,7 @@ body {
     margin: 0 0 10px 0;
 }
 
-/* UKURAN TEKS PARAGRAF (P) TETAP DIPERBESAR */
+/* TEKS DESKRIPSI (P) SUDAH BESAR DAN NYAMAN DIBACA */
 .card-text p {
     font-size: 18px;           
     line-height: 1.7;          
@@ -192,26 +192,26 @@ body {
 
 /* --- WADAH FOTO BULAT DI SEBELAH KANAN --- */
 .card-image {
-    flex: 1;                   /* Memastikan foto mendapatkan porsi ruang tetap di kanan */
+    flex: 1;                   
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .card-image img {
-    width: 130px;              /* Ukuran lingkaran foto profil sesuai awal */
+    width: 130px;              
     height: 130px;
-    border-radius: 50%;        /* Membuat foto berbentuk bulat sempurna */
+    border-radius: 50%;        
     object-fit: cover;         
     border: 3px solid #eee;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
 }
 
 /* --- DISTRIBUSI GAMBAR BACKGROUND MASING-MASING KARTU --- */
-.cc1 .card-text { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('content.jpg'); }
-.cc2 .card-text { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('web.jpg'); }
-.cc3 .card-text { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('app.jpg'); }
-.cc4 .card-text { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('design.webp'); }
+.cc1 .card-text { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('content.jpg'); }
+.cc2 .card-text { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('web.jpg'); }
+.cc3 .card-text { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('app.jpg'); }
+.cc4 .card-text { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('design.webp'); }
 
 /* --- EMBED CANVA --- */
 .ff {
@@ -224,20 +224,19 @@ body {
 /* --- RESPONSIVE MOBILE (KARTU TETAP KUNCI 2x2) --- */
 @media (max-width: 900px) {
     .hero-container {
-        flex-direction: column-reverse; /* Foto hero pindah ke atas teks saat di HP */
+        flex-direction: column-reverse; 
         padding: 40px 20px;
         gap: 30px;
     }
     
     .cc {
-        /* grid-template-columns: 1fr; <-- DIHAPUS agar layout tidak berubah jadi 1 baris memanjang di HP */
-        padding: 40px 10px; /* Sedikit memperkecil padding samping di HP agar muat 2 kolom */
-        gap: 15px;          /* Memperkecil jarak antar kartu di HP */
+        padding: 40px 10px; 
+        gap: 15px;          
     }
     
     .cc1, .cc2, .cc3, .cc4 {
-        flex-direction: column-reverse; /* Foto profil berada di atas teks saat di layar kecil */
-        align-items: center;            /* Foto diposisikan ke tengah kartu */
+        flex-direction: column-reverse; 
+        align-items: center;            
         padding: 15px 0;
     }
     
