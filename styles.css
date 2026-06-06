@@ -2,6 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 
+/* --- RESET STYLE --- */
 body {
     font-family: 'Inter', sans-serif;
     background-color: #ffffff;
@@ -9,11 +10,12 @@ body {
     margin: 0; 
 }
 
+/* --- NAVIGASI HEADER --- */
 .aa {
     display: flex;              
     justify-content: space-between; 
     align-items: center;         
-    padding: 10px 50px;          
+    padding: 15px 10%;          
     background-color: #ffffff;    
     border-bottom: 1px solid #eee;
 }
@@ -28,7 +30,7 @@ body {
 .nav1 {
     list-style: none;
     display: flex;
-    gap: 20px; 
+    gap: 25px; 
     align-items: center;
     margin: 0;
     padding: 0;
@@ -46,6 +48,7 @@ body {
     color: #888; 
 }
 
+/* --- MENU DROPDOWN SYSTEM --- */
 .li1 {
     position: relative;
     display: inline-block;
@@ -85,57 +88,63 @@ body {
     display: block;
 }
 
+/* --- STRUKTUR BAGIAN HERO (ATAS) --- */
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 10%;
+    gap: 50px;
+}
+
 .bb {
-    padding-left: 10%; 
-    margin-top: 100px; 
+    flex: 1; /* Teks mengambil ruang kiri */
     display: flex;      
     flex-direction: column; 
     gap: 10px;              
-    align-items: flex-start; 
 }
 
 .bb h2, .bb h3, .bb h4, .bb h5 {
-    display: block;      
     margin: 0;           
-    white-space: normal; 
 }
     
 .bb h2 { font-size: 25px; color: #2AFF00; margin-bottom: 6px; }
 .bb h3 { font-size: 45px; color: #000000; margin-bottom: 6px; }
-.bb h4 { font-size: 25px; color: #696969; margin-bottom: 25px; }
-.bb h5 { font-size: 20px; color: #696969; margin-bottom: 50px; }
+.bb h4 { font-size: 25px; color: #696969; margin-bottom: 15px; }
+.bb h5 { font-size: 18px; color: #555555; line-height: 1.6; }
 
+.hero-image-container {
+    flex: 1; /* Foto mengambil ruang kanan */
+    display: flex;
+    justify-content: center;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 500px; /* Ukuran maksimal foto kelompok */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+    object-fit: cover;
+}
+
+/* --- STRUKTUR GRID KARTU PERKENALAN (CC) --- */
 .cc {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px; 
-    padding: 80px 10%; 
+    padding: 60px 10%; 
     background-color: #fff;
 }
 
 .cc1 {
-    border: none; 
+    display: flex; /* Membuat teks berada di kiri dan foto di kanan di dalam kartu */
+    justify-content: space-between;
+    align-items: center;
     border-top: 1px solid #eaeaea; 
     padding: 30px 0; 
-    background-color: transparent; 
-    box-shadow: none; 
+    gap: 20px;
     transition: all 0.4s ease;
-}
-
-.cc1 h3 {
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #1a1a1a;
-}
-
-.label {
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #888;
-    display: block;
-    margin-bottom: 15px;
 }
 
 .cc1:hover {
@@ -143,14 +152,52 @@ body {
     border-top: 1px solid #000; 
 }
 
-.cc1 p {
-    font-size: 18px;
+.card-text {
+    flex: 2; /* Bagian teks mendapatkan area lebih besar */
+}
+
+.card-text h3 {
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    color: #1a1a1a;
+}
+
+.label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.card-text p {
+    font-size: 16px;
     line-height: 1.6;
     color: #555;
-    padding: 0; 
+    margin: 0;
     text-align: justify;
 }
 
+/* Mengatur wadah foto bulat agar teks tidak menabrak */
+.card-image {
+    flex: 1; /* Memastikan foto mendapatkan porsi ruang tetap di kanan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-image img {
+    width: 130px; /* Ukuran lingkaran foto profil */
+    height: 130px;
+    border-radius: 50%; /* Membuat foto berbentuk bulat sempurna */
+    object-fit: cover; /* Mencegah foto gepeng */
+    border: 3px solid #eee;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+}
+
+/* --- EMBED CANVA --- */
 .ff {
     width: 100%;
     max-width: 900px; 
@@ -158,12 +205,24 @@ body {
     padding: 0 20px;   
 }
 
-@media (max-width: 768px) {
-    .cc {
-        grid-template-columns: 1fr;
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 900px) {
+    .hero-container {
+        flex-direction: column-reverse; /* Foto pindah ke atas teks saat di HP */
+        padding: 40px 20px;
+        gap: 30px;
     }
-    .bb {
-        padding-left: 20px;
-        margin-top: 50px;
+    .cc {
+        grid-template-columns: 1fr; /* Grid kartu menjadi 1 kolom saja di HP */
+        padding: 40px 20px;
+    }
+    .cc1 {
+        flex-direction: column-reverse; /* Foto profil berada di atas teks saat di layar kecil */
+        align-items: flex-start;
+        padding: 20px 0;
+    }
+    .card-image {
+        align-self: center; /* Foto tetap di tengah saat posisi mobile */
+        margin-bottom: 15px;
     }
 }
