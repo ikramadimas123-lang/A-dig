@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A-DIG - Choose Ur Outfit</title>
-    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -34,13 +34,19 @@
             <hr style="border: 0; height: 1px; background: #eee; margin-bottom: 30px;">
 
             <div id="quiz-page" class="card-view">
-                <h3>Kuis Singkat: Apakah Oversized T-shirt termasuk tren Streetwear kekinian?</h3>
+                <div id="quiz-progress" style="font-weight: 600; color: #666; margin-bottom: 10px; font-size: 14px;">Pertanyaan 1 dari 5</div>
+                
+                <h3 id="quiz-question">Apakah Oversized T-shirt termasuk tren Streetwear kekinian?</h3>
+                
                 <div style="margin-top: 20px;">
-                    <button class="btn" onclick="checkAnswer(true)">Ya, Benar Banget!</button>
-                    <button class="btn" onclick="checkAnswer(false)">Bukan, Sudah Kuno</button>
+                    <button class="btn" onclick="submitAnswer(true)">Ya, Benar Banget!</button>
+                    <button class="btn" onclick="submitAnswer(false)">Bukan, Sudah Kuno</button>
                 </div>
+                
                 <div id="quiz-feedback" class="feedback"></div>
-                <button id="next-to-gender" class="btn hidden" onclick="goToGenderPage()" style="background-color: #2ecc71;">Lanjut Pilih Gender ➡️</button>
+                
+                <button id="next-quiz-btn" class="btn hidden" onclick="nextQuestion()" style="background-color: #111; border-color: #2AFF00; color: #fff;">Pertanyaan Selanjutnya ➡️</button>
+                <button id="next-to-gender" class="btn hidden" onclick="goToGenderPage()" style="background-color: #000; border-color: #2AFF00; color: #fff;">Lanjut Pilih Gender ➡️</button>
             </div>
 
             <div id="gender-page" class="card-view hidden">
@@ -60,8 +66,84 @@
     </main>
 
     <script>
-        // Data 20 Outfit Kekinian Wanita
+        // DATA KUIS (5 SOAL)
+        const daftarKuis = [
+            {
+                pertanyaan: "Apakah Oversized T-shirt termasuk tren Streetwear kekinian?",
+                jawabanBenar: true,
+                pesanBenar: "✅ Benar! Oversized T-shirt adalah pilar utama fashion Streetwear saat ini.",
+                pesanSalah: "❌ Salah. Oversized T-shirt justru merupakan tren streetwear masa kini yang sangat populer!"
+            },
+            {
+                pertanyaan: "Apakah gaya 'Old Money' identik dengan logo brand besar yang mencolok (Logomania)?",
+                jawabanBenar: false,
+                pesanBenar: "✅ Tepat sekali! Gaya 'Old Money' justru mengutamakan kualitas bahan tanpa logo yang mencolok (Quiet Luxury).",
+                pesanSalah: "❌ Kurang tepat. Gaya 'Old Money' cenderung menghindari logo besar dan memilih pakaian yang polos namun elegan."
+            },
+            {
+                pertanyaan: "Apakah warna 'Sage Green' dan 'Earth Tone' sempat viral dalam tren fashion belakangan ini?",
+                jawabanBenar: true,
+                pesanBenar: "✅ Benar! Warna bumi (Earth tone) seperti hijau sage sangat digemari karena memberikan kesan estetik dan kalem.",
+                pesanSalah: "❌ Salah. Warna sage green dan earth tone merupakan salah satu kiblat warna paling hits akhir-akhir ini."
+            },
+            {
+                pertanyaan: "Apakah celana Cargo Loosely/Gombrang hanya cocok dipakai untuk mendaki gunung?",
+                jawabanBenar: false,
+                pesanBenar: "✅ Betul! Sekarang celana cargo telah bergeser menjadi ikon streetwear kasual yang keren untuk nongkrong.",
+                pesanSalah: "❌ Salah konsep. Celana cargo saat ini sudah menjadi fashion item wajib anak skena urban fashion, bukan cuma buat naik gunung."
+            },
+            {
+                pertanyaan: "Apakah tren fashion 'Y2K' itu merujuk pada adaptasi gaya pakaian retro era awal tahun 2000-an?",
+                jawabanBenar: true,
+                pesanBenar: "✅ Luar biasa, Benar! Y2K stands for Year 2000, gaya metallic, crop top, dan kacamata futuristik kembali meledak.",
+                pesanSalah: "❌ Salah. Y2K fashion adalah singkatan dan tren ri nyata dari gaya berpakaian futuristik awal milenium tahun 2000."
+            }
+        ];
+
+        let indeksKuisSekarang = 0;
+
+        function tampilkanSoal() {
+            const kuisAktif = daftarKuis[indeksKuisSekarang];
+            document.getElementById("quiz-progress").innerText = `Pertanyaan ${indeksKuisSekarang + 1} dari ${daftarKuis.length}`;
+            document.getElementById("quiz-question").innerText = kuisAktif.pertanyaan;
+            document.getElementById("quiz-feedback").innerHTML = "";
+            document.getElementById("quiz-feedback").className = "feedback";
+            document.getElementById("next-quiz-btn").classList.add("hidden");
+            document.getElementById("next-to-gender").classList.add("hidden");
+        }
+
+        function submitAnswer(pilihanUser) {
+            const kuisAktif = daftarKuis[indeksKuisSekarang];
+            const feedbackDiv = document.getElementById("quiz-feedback");
+            
+            if (pilihanUser === kuisAktif.jawabanBenar) {
+                feedbackDiv.innerHTML = `<span class='correct'>${kuisAktif.pesanBenar}</span>`;
+            } else {
+                feedbackDiv.innerHTML = `<span class='incorrect'>${kuisAktif.pesanSalah}</span>`;
+            }
+
+            // Atur tombol navigasi selanjutnya
+            if (indeksKuisSekarang < daftarKuis.length - 1) {
+                document.getElementById("next-quiz-btn").classList.remove("hidden");
+            } else {
+                document.getElementById("next-to-gender").classList.remove("hidden");
+            }
+        }
+
+        function nextQuestion() {
+            indeksKuisSekarang++;
+            tampilkanSoal();
+        }
+
+        function goToGenderPage() {
+            document.getElementById("quiz-page").classList.add("hidden");
+            document.getElementById("catalog-page").classList.add("hidden");
+            document.getElementById("gender-page").classList.remove("hidden");
+        }
+
+        // DATA OUTFIT PEREMPUAN (21 MACAM - TAMBAH 1 COQUETTE STYLE)
         const outfitsWanita = [
+            { nama: "Coquette Ribbon Aesthetic", desc: "Tren paling hits dengan detail pita-pita manis, atasan renda lembut, dan rok mini putih bergaya balerina feminin.", img: "https://images.unsplash.com/photo-1611042553975-08733608b2db?auto=format&fit=crop&w=400&q=80" },
             { nama: "Y2K Cargo Slouchy", desc: "Celana cargo longgar dipadukan dengan crop top bernuansa awal tahun 2000-an.", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80" },
             { nama: "Oversized Blazer Set", desc: "Blazer ukuran besar dengan celana bahan senada untuk tampilan smart casual formal.", img: "https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?auto=format&fit=crop&w=400&q=80" },
             { nama: "Korean Floral Dress", desc: "Dress motif bunga kecil dengan potongan midi khas cewek Korea aesthetic.", img: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=400&q=80" },
@@ -84,8 +166,9 @@
             { nama: "Pastel Tie Dye Set", desc: "Satu set kaos dan celana corak tie-dye berwarna pastel yang colorful ceria.", img: "https://images.unsplash.com/photo-1617932681640-1f10738e4a90?auto=format&fit=crop&w=400&q=80" }
         ];
 
-        // Data 20 Outfit Kekinian Pria
+        // DATA OUTFIT PRIA (21 MACAM - TAMBAH 1 GORPCORE TECHNICAL)
         const outfitsPria = [
+            { nama: "Gorpcore Hiking Look", desc: "Jaket waterproof outdoor premium tipe Arc'teryx dipadukan dengan tech-pants fungsional dan sepatu gunung Salomon hip.", img: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=400&q=80" },
             { nama: "Oversized Streetwear Tee", desc: "Kaos longgar katun berat dengan grafis simpel dipadu celana cargo.", img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80" },
             { nama: "Minimalist Flannel Layering", desc: "Kemeja flanel kotak-kotak tidak dikancing, dengan kaos polos putih di dalam.", img: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=400&q=80" },
             { nama: "Techwear Cargo Utility", desc: "Gaya taktis futuristik dominan hitam dengan kantong serbaguna melimpah.", img: "https://images.unsplash.com/photo-1617114919297-3c8ddb01f599?auto=format&fit=crop&w=400&q=80" },
@@ -108,25 +191,6 @@
             { nama: "Open Knit Cardigan", desc: "Kardigan rajut berongga longgar di atas tank top, tren pria paling hits.", img: "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=400&q=80" }
         ];
 
-        function checkAnswer(isTrue) {
-            const feedbackDiv = document.getElementById("quiz-feedback");
-            const nextBtn = document.getElementById("next-to-gender");
-
-            if (isTrue) {
-                feedbackDiv.innerHTML = "<span class='correct'>✅ Benar! Oversized T-shirt adalah pilar utama fashion Streetwear saat ini.</span>";
-                nextBtn.classList.remove("hidden");
-            } else {
-                feedbackDiv.innerHTML = "<span class='incorrect'>❌ Salah. Oversized T-shirt justru merupakan tren streetwear masa kini yang sangat populer, bukan kuno! Yuk coba lanjut.</span>";
-                nextBtn.classList.remove("hidden");
-            }
-        }
-
-        function goToGenderPage() {
-            document.getElementById("quiz-page").classList.add("hidden");
-            document.getElementById("catalog-page").classList.add("hidden");
-            document.getElementById("gender-page").classList.remove("hidden");
-        }
-
         function showOutfits(gender) {
             document.getElementById("gender-page").classList.add("hidden");
             const catalogPage = document.getElementById("catalog-page");
@@ -138,10 +202,10 @@
 
             let dataOutfit = [];
             if (gender === 'wanita') {
-                catalogTitle.innerText = "👗 Tren Outfit Kekinian Perempuan (20 Macam)";
+                catalogTitle.innerText = "👗 Tren Outfit Kekinian Perempuan (21 Macam)";
                 dataOutfit = outfitsWanita;
             } else {
-                catalogTitle.innerText = "🙋‍♂️ Tren Outfit Kekinian Laki-Laki (20 Macam)";
+                catalogTitle.innerText = "🙋‍♂️ Tren Outfit Kekinian Laki-Laki (21 Macam)";
                 dataOutfit = outfitsPria;
             }
 
@@ -158,6 +222,9 @@
                 container.innerHTML += itemHTML;
             });
         }
+
+        // Inisialisasi Kuis Saat Pertama Kali Muat Halaman
+        window.onload = tampilkanSoal;
     </script>
 </body>
 </html>
