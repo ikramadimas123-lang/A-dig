@@ -1,18 +1,234 @@
-/* Place your CSS styles in this file */
+/* ==========================================================================
+   --- TEMA BARU: CHOOSE UR OUTFIT (SEALIRAN DENGAN PORTFOLIO A-DIG) ---
+   ========================================================================== */
 
-h1 {
+/* --- WADAH UTAMA KONTEN APLIKASI --- */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 10%;
+    background: radial-gradient(circle at 90% 80%, rgba(0, 191, 255, 0.02) 0%, transparent 50%);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+    border: 1px solid #f0f0f0;
     text-align: center;
-    font-family: "Times new roman", sans-serif;
-    font-weight: bold;
 }
 
-
-ul{text-align: center;
-   padding: 0;
-   margin: 0;
-   list-style-type: none;
+.container h1 {
+    font-family: 'Inter', sans-serif;
+    color: #000000;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin-bottom: 10px;
 }
 
+.container hr {
+    border: 0;
+    height: 1px;
+    background: #eaeaea;
+    margin-bottom: 40px;
+}
 
+.hidden {
+    display: none !important;
+}
 
+/* --- TAMPILAN KUIS & PILIH GENDER --- */
+.card-view {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
+.card-view h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* --- TOMBOL-TOMBOL INTERAKTIF (SISTEM STRUKTUR BUTTON) --- */
+.btn {
+    font-family: 'Inter', sans-serif;
+    background-color: #111111;
+    color: #ffffff;
+    border: 1px solid #222222;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* Tombol Variasi Gender */
+.btn-gender {
+    width: 100%;
+    max-width: 300px;
+    font-size: 18px;
+    padding: 22px 30px;
+    letter-spacing: 0.5px;
+}
+
+/* Gender Laki-Laki (Tema Aksen Biru) */
+.btn-male { 
+    background-color: #000000; 
+    border: 2px solid #00bfff;
+    color: #ffffff;
+}
+.btn-male:hover { 
+    background-color: #00bfff; 
+    color: #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 191, 255, 0.35);
+}
+
+/* Gender Perempuan (Tema Aksen Hijau Skena) */
+.btn-female { 
+    background-color: #000000; 
+    border: 2px solid #2AFF00;
+    color: #ffffff;
+}
+.btn-female:hover { 
+    background-color: #2AFF00; 
+    color: #000000;
+    box-shadow: 0 10px 25px rgba(42, 255, 0, 0.35);
+}
+
+/* Tombol Kembali / Back */
+.back-btn {
+    background-color: transparent;
+    color: #666;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+}
+.back-btn:hover {
+    background-color: #fafafa;
+    color: #000;
+    border-color: #000;
+}
+
+/* --- FEEDBACK JAWABAN KUIS --- */
+.feedback {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+}
+.correct { 
+    color: #23cc00; 
+    background-color: rgba(42, 255, 0, 0.05);
+    border: 1px solid rgba(42, 255, 0, 0.2);
+}
+.incorrect { 
+    color: #ff3b30; 
+    background-color: rgba(255, 59, 48, 0.05);
+    border: 1px solid rgba(255, 59, 48, 0.2);
+}
+
+/* --- GRID KATALOG OUTFIT KEKINIAN --- */
+.grid-outfit {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 35px;
+    margin-top: 40px;
+}
+
+.outfit-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #eaeaea;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.outfit-card:hover {
+    transform: translateY(-8px);
+    border-color: #2AFF00; /* Menyamakan efek hover border hijau seperti kartu utama */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+}
+
+.outfit-img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #f0f0f0;
+    transition: transform 0.5s ease;
+}
+
+.outfit-card:hover .outfit-img {
+    transform: scale(1.03);
+}
+
+.outfit-info {
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #ffffff;
+}
+
+.outfit-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: #1a1a1a;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.outfit-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* --- PENYESUAIAN RESPONSIVE UNTUK APLIKASI --- */
+@media (max-width: 600px) {
+    main {
+        padding: 30px 20px;
+    }
+    
+    .container {
+        padding: 25px 20px;
+    }
+    
+    .container h1 {
+        font-size: 1.8rem;
+    }
+    
+    .grid-outfit {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
