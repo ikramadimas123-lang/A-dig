@@ -1,8 +1,357 @@
+Berikut adalah hasil penggabungan utuh antara kode CSS milik Anda dengan CSS aplikasi Choose Ur Outfit yang sudah diselaraskan temanya.
+
+Semua kode sekarang berada di dalam satu kesatuan file styles.css. Anda tinggal menyalin seluruh kode di bawah ini dan mengganti total isi file styles.css lama Anda.
+
+CSS
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 /* ==========================================================================
-   --- TEMA BARU: CHOOSE UR OUTFIT (SEALIRAN DENGAN PORTFOLIO A-DIG) ---
+   --- RESET STYLE & BASE ---
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fafafa; /* Latar belakang dasar abu-abu super soft agar kartu putih lebih stand out */
+    color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   --- NAVIGASI HEADER (A-DIG ORIGINAL) ---
+   ========================================================================== */
+.aa {
+    display: flex;              
+    justify-content: space-between; 
+    align-items: center;         
+    padding: 15px 10%;          
+    background-color: #ffffff;    
+    border-bottom: 1px solid #eee;
+    position: sticky; /* Membuat navbar menempel di atas saat di-scroll */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.aa h1 {
+    margin: 0;
+    font-size: 32px; 
+    font-weight: 700;
+    color: #000;
+    letter-spacing: -1px;
+}
+
+.nav1 {
+    list-style: none;
+    display: flex;
+    gap: 30px; 
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav1 > li > a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 18px; 
+    transition: 0.3s ease; 
+}
+
+.nav1 > li > a:hover {
+    color: #2AFF00; 
+}
+
+/* --- MENU DROPDOWN SYSTEM --- */
+.li1 {
+    position: relative;
+    display: inline-block;
+}
+
+.li3 {
+    display: none; 
+    position: absolute;
+    right: 0; 
+    top: 100%;
+    background-color: #ffffff; 
+    list-style: none;
+    padding: 10px 0;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+    margin: 10px 0 0 0;
+    border-radius: 8px;
+    min-width: 150px;
+    z-index: 100;
+    border: 1px solid #f0f0f0;
+}
+
+.li3 li a {
+    color: #333;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    font-weight: normal;
+    transition: 0.2s;
+}
+
+.li3 li a:hover {
+    background-color: #f5f5f5;
+    color: #2AFF00; 
+}
+
+.li1:hover .li3 {
+    display: block;
+}
+
+/* ==========================================================================
+   --- STRUKTUR BAGIAN HERO (PORTOFOLIO ATAS) ---
+   ========================================================================== */
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 10%;
+    gap: 60px;
+    background: radial-gradient(circle at 10% 20%, rgba(42, 255, 0, 0.03) 0%, transparent 40%);
+}
+
+.bb {
+    flex: 1; 
+    display: flex;      
+    flex-direction: column; 
+    gap: 8px;              
+}
+
+/* Tag kecil di atas judul */
+.welcome-tag {
+    background-color: rgba(42, 255, 0, 0.1);
+    color: #23cc00;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+.bb h2, .bb h3, .bb h4, .bb h5 {
+    margin: 0;           
+}
+    
+.bb h2 { font-size: 26px; color: #444; font-weight: 400; }
+.bb h3 { font-size: 48px; color: #000000; font-weight: 700; letter-spacing: -1px; }
+
+/* Teks warna gradasi neon */
+.text-gradient {
+    background: linear-gradient(45deg, #23cc00, #00bfff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bb h4 { font-size: 24px; color: #666; font-weight: 500; margin-bottom: 10px; }
+.bb h5 { font-size: 16px; color: #666666; line-height: 1.7; font-weight: 400; }
+
+.hero-image-container {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+/* Efek menyala di belakang foto utama */
+.image-glow-effect {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+}
+.image-glow-effect::before {
+    content: '';
+    position: absolute;
+    top: 10px; left: 10px; right: -10px; bottom: -10px;
+    background: linear-gradient(45deg, #2AFF00, #00bfff);
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0.3;
+    filter: blur(10px);
+}
+
+.hero-img {
+    width: 100%;
+    height: 280px;        
+    border-radius: 16px;
+    box-shadow: 0px 12px 30px rgba(0,0,0,0.15);
+    object-fit: cover;    
+    transition: transform 0.4s ease;
+}
+.hero-img:hover {
+    transform: scale(1.02);
+}
+
+/* Judul Seksi Konten (Team & Canva) */
+.section-title {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+.section-title h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111;
+    margin: 0;
+}
+.title-line {
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(90deg, #2AFF00, #00bfff);
+    margin: 10px auto 0 auto;
+    border-radius: 10px;
+}
+
+/* ==========================================================================
+   --- GRID UTAMA KARTU TIM (2X2) ---
+   ========================================================================== */
+.cc {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 40px; 
+    padding: 30px 10% 60px 10%; 
+    background-color: transparent;
+}
+
+.cc1, .cc2, .cc3, .cc4 {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid #eaeaea; 
+    padding: 35px 0; 
+    gap: 25px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Efek interaktif hover kartu */
+.cc1:hover, .cc2:hover, .cc3:hover, .cc4:hover {
+    transform: translateY(-5px); 
+    border-top: 2px solid #2AFF00; 
+}
+
+/* --- BLOK TEKS DENGAN BACKGROUND GAMBAR UTUH --- */
+.card-text {
+    flex: 1.8;                 
+    padding: 30px 25px;              
+    border-radius: 16px;       
+    background-size: cover;       
+    background-position: center;  
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-text h3, 
+.card-text .label {
+    color: #ffffff !important; 
+    text-shadow: 0px 2px 8px rgba(0,0,0,0.6); 
+}
+
+.label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    color: #2AFF00 !important; /* Nomor identitas berwarna kontras cerah */
+}
+
+.card-text h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* KOTAK PUTIH KHUSUS UNTUK TEKS PARAGRAF (P) */
+.card-text p {
+    font-size: 15px;           
+    line-height: 1.6;          
+    margin: 5px 0 0 0;
+    text-align: justify;
+    background-color: rgba(255, 255, 255, 0.95); 
+    backdrop-filter: blur(5px); /* Efek kaca */
+    color: #222 !important; 
+    padding: 15px;             
+    border-radius: 12px;        
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* --- WADAH FOTO BULAT --- */
+.card-image {
+    flex: 1.2;                 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-image img {
+    width: 170px;              
+    height: 170px;             
+    border-radius: 50%;        
+    object-fit: cover;         
+    border: 5px solid #ffffff;    
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.12);
+    transition: transform 0.4s ease;
+}
+
+.cc1:hover .card-image img, 
+.cc2:hover .card-image img, 
+.cc3:hover .card-image img, 
+.cc4:hover .card-image img {
+    transform: scale(1.05) rotate(3deg);
+}
+
+/* --- BACKGROUND MASING-MASING KARTU --- */
+.cc1 .card-text { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('content.jpg'); }
+.cc2 .card-text { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('web.jpg'); }
+.cc3 .card-text { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('app.jpg'); }
+.cc4 .card-text { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('design.webp'); }
+
+/* ==========================================================================
+   --- EMBED CANVA ---
+   ========================================================================== */
+.ff {
+    width: 100%;
+    max-width: 850px; 
+    margin: 30px auto 80px auto; 
+    padding: 0 20px;   
+}
+
+.canva-wrapper-decoration {
+    position: relative; 
+    width: 100%; 
+    height: 0; 
+    padding-top: 56.25%; 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08); 
+    overflow: hidden; 
+    border-radius: 16px; 
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+.canva-wrapper-decoration:hover {
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   --- TEMA INTEGRASI: APLIKASI CHOOSE UR OUTFIT (SATU TEMA NEON) ---
    ========================================================================== */
 
-/* --- WADAH UTAMA KONTEN APLIKASI --- */
+/* --- WADAH UTAMA KONTEN APLIKASI OUTFIT --- */
 main {
     flex: 1;
     display: flex;
@@ -24,7 +373,6 @@ main {
 }
 
 .container h1 {
-    font-family: 'Inter', sans-serif;
     color: #000000;
     font-size: 2.5rem;
     font-weight: 700;
@@ -51,7 +399,6 @@ main {
 }
 
 .card-view h3 {
-    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 600;
     color: #1a1a1a;
@@ -59,7 +406,7 @@ main {
     margin-bottom: 15px;
 }
 
-/* --- TOMBOL-TOMBOL INTERAKTIF (SISTEM STRUKTUR BUTTON) --- */
+/* --- BUTTON SYSTEM KEKINIAN --- */
 .btn {
     font-family: 'Inter', sans-serif;
     background-color: #111111;
@@ -82,7 +429,7 @@ main {
     box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
-/* Tombol Variasi Gender */
+/* Tombol Kategori Gender */
 .btn-gender {
     width: 100%;
     max-width: 300px;
@@ -91,7 +438,7 @@ main {
     letter-spacing: 0.5px;
 }
 
-/* Gender Laki-Laki (Tema Aksen Biru) */
+/* Aksen Neon Biru untuk Pria */
 .btn-male { 
     background-color: #000000; 
     border: 2px solid #00bfff;
@@ -103,7 +450,7 @@ main {
     box-shadow: 0 10px 25px rgba(0, 191, 255, 0.35);
 }
 
-/* Gender Perempuan (Tema Aksen Hijau Skena) */
+/* Aksen Neon Hijau untuk Perempuan */
 .btn-female { 
     background-color: #000000; 
     border: 2px solid #2AFF00;
@@ -115,7 +462,7 @@ main {
     box-shadow: 0 10px 25px rgba(42, 255, 0, 0.35);
 }
 
-/* Tombol Kembali / Back */
+/* Tombol Kembali */
 .back-btn {
     background-color: transparent;
     color: #666;
@@ -130,7 +477,7 @@ main {
     border-color: #000;
 }
 
-/* --- FEEDBACK JAWABAN KUIS --- */
+/* --- FEEDBACK KUIS --- */
 .feedback {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -151,7 +498,7 @@ main {
     border: 1px solid rgba(255, 59, 48, 0.2);
 }
 
-/* --- GRID KATALOG OUTFIT KEKINIAN --- */
+/* --- GRID KATALOG OUTFIT REKOMENDASI --- */
 .grid-outfit {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -171,7 +518,7 @@ main {
 
 .outfit-card:hover {
     transform: translateY(-8px);
-    border-color: #2AFF00; /* Menyamakan efek hover border hijau seperti kartu utama */
+    border-color: #2AFF00; /* Menyelaraskan border hijau interaktif seperti kartu profil */
     box-shadow: 0 15px 35px rgba(0,0,0,0.06);
 }
 
@@ -198,7 +545,6 @@ main {
 }
 
 .outfit-title {
-    font-family: 'Inter', sans-serif;
     font-size: 18px;
     color: #1a1a1a;
     font-weight: 700;
@@ -206,15 +552,55 @@ main {
 }
 
 .outfit-desc {
-    font-family: 'Inter', sans-serif;
     font-size: 14px;
     color: #666666;
     line-height: 1.6;
     font-weight: 400;
 }
 
-/* --- PENYESUAIAN RESPONSIVE UNTUK APLIKASI --- */
-@media (max-width: 600px) {
+/* ==========================================================================
+   --- RUNNING TEXT FOOTER ---
+   ========================================================================== */
+.marquee-footer {
+    background-color: #111111;
+    color: #ffffff;
+    padding: 12px 0;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.marquee-footer marquee {
+    display: flex;
+    align-items: center;
+}
+
+/* ==========================================================================
+   --- RESPONSIVE MEDIA QUERIES (MOBILE OPTIMIZATION) ---
+   ========================================================================== */
+@media (max-width: 900px) {
+    .hero-container {
+        flex-direction: column-reverse; 
+        padding: 40px 20px;
+        gap: 30px;
+    }
+    
+    .cc {
+        grid-template-columns: 1fr; /* Di HP otomatis menjadi 1 kolom vertikal */
+        padding: 20px 20px; 
+        gap: 30px;          
+    }
+    
+    .cc1, .cc2, .cc3, .cc4 {
+        flex-direction: column-reverse; 
+        align-items: center;            
+        padding: 20px 0;
+    }
+    
+    .card-image {
+        align-self: center; 
+        margin-bottom: 15px;
+    }
+
     main {
         padding: 30px 20px;
     }
