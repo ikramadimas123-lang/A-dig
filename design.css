@@ -1,11 +1,34 @@
 /* --- RESET & FONTS --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #fafafa; /* Diubah sedikit ke abu-abu super soft agar elemen putih lebih pop-out */
+    background-color: #fcfcfc; 
     color: #1a1a1a;
     margin: 0; 
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* --- HIASAN BACKGROUND GLOW (BARU) --- */
+.bg-decoration-1 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: -50px;
+    left: -100px;
+    background: radial-gradient(circle, rgba(42, 255, 0, 0.05) 0%, transparent 70%);
+    z-index: -1;
+}
+.bg-decoration-2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    bottom: 0;
+    right: -100px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.05) 0%, transparent 70%);
+    z-index: -1;
 }
 
 /* --- NAVIGASI HEADER --- */
@@ -14,15 +37,20 @@ body {
     justify-content: space-between; 
     align-items: center;         
     padding: 15px 10%;          
-    background-color: #ffffff;    
-    border-bottom: 1px solid #eee;
+    background-color: rgba(255, 255, 255, 0.9);    
+    backdrop-filter: blur(10px); /* Efek kaca transparan pada navbar */
+    border-bottom: 1px solid #f0f0f0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .aa h1 {
     margin: 0;
-    font-size: 35px; 
-    font-weight: bold;
+    font-size: 32px; 
+    font-weight: 700;
     color: #000;
+    letter-spacing: -1px;
 }
 
 .nav1 {
@@ -38,12 +66,12 @@ body {
     text-decoration: none;
     color: black;
     font-weight: bold;
-    font-size: 20px; 
-    transition: 0.3s; 
+    font-size: 18px; 
+    transition: 0.3s ease; 
 }
 
 .nav1 > li > a:hover {
-    color: #888; 
+    color: #2AFF00; 
 }
 
 /* --- MENU DROPDOWN SYSTEM --- */
@@ -60,11 +88,12 @@ body {
     background-color: #ffffff; 
     list-style: none;
     padding: 10px 0;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.08);
     margin: 5px 0 0 0;
-    border-radius: 6px;
+    border-radius: 8px;
     min-width: 140px;
     z-index: 100;
+    border: 1px solid #f0f0f0;
 }
 
 .li3 li a {
@@ -86,58 +115,63 @@ body {
     display: block;
 }
 
-
-/* --- LAYOUT KONTEN UTAMA (BARU) --- */
+/* --- LAYOUT KONTEN UTAMA (UKURAN SEDANG) --- */
 .content-wrapper {
-    max-width: 850px;       /* Membatasi lebar maksimal agar Canva tidak terlalu besar/lebar */
-    margin: 60px auto;      /* Memberikan jarak atas-bawah dan otomatis membuat konten di tengah */
-    padding: 0 20px;        /* Jarak aman di sisi kanan-kiri pada layar HP */
-    text-align: center;     /* Membuat semua teks di dalamnya otomatis ke tengah */
+    max-width: 760px;       /* DIUBAH ke 760px agar ukuran Canva menjadi SEDANG & pas di mata */
+    margin: 80px auto;      /* Memberikan ruang vertikal yang seimbang */
+    padding: 0 24px;        
+    text-align: center;     /* Memastikan Judul bb h2 otomatis berada tepat di tengah */
 }
 
-/* --- HIASAN JUDUL H2 (BARU) --- */
+/* --- HIASAN JUDUL H2 --- */
 .bb h2 {
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 700;
     color: #111111;
-    margin: 0 0 12px 0;
-    letter-spacing: -0.5px;
+    margin: 0 0 14px 0;
+    letter-spacing: -0.8px;
+    animation: fadeInDown 0.6s ease-out; /* Animasi judul muncul dari atas */
 }
 
-/* Hiasan garis estetik di bawah tulisan Design Proyek */
+/* Hiasan garis bawah modern */
 .bb .underline {
-    width: 50px;
-    height: 4px;
-    background: linear-gradient(90deg, #2AFF00, #00E5FF); /* Menggunakan aksen warna neon dari hover dropdown-mu */
-    margin: 0 auto 40px auto; /* Membuat garis berada di tengah dan memberi jarak ke Canva */
+    width: 60px;
+    height: 5px;
+    background: linear-gradient(90deg, #2AFF00, #00E5FF); 
+    margin: 0 auto 45px auto; 
     border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(42, 255, 0, 0.2);
 }
 
-/* --- CONTAINER CANVA DENGAN EFEK MODERN (BARU) --- */
+/* --- CONTAINER CANVA PREMIUM --- */
 .canva-container {
     position: relative;
     width: 100%;
-    padding-top: 56.25%;   /* Rasio 16:9 standar agar tampilan Canva presisi */
+    padding-top: 56.25%;   /* Menjaga aspek rasio monitor 16:9 */
     overflow: hidden;
-    border-radius: 16px;   /* Membuat sudut pinggiran Canva melengkung halus */
+    border-radius: 20px;   /* Pinggiran melengkung lebih smooth modern */
     background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.03);
     
-    /* Efek bayangan (shadow) halus premium */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06), 
-                0 1px 3px rgba(0, 0, 0, 0.02);
+    /* Bayangan mewah bercahaya halus */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08),
+                0 0 20px 0 rgba(42, 255, 0, 0.01);
     
-    /* Efek animasi transisi saat kursor menyentuh elemen */
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Transisi interaksi gerak */
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.5s ease;
+    
+    animation: fadeInUp 0.8s ease-out; /* Animasi card naik saat halaman dibuka */
 }
 
-/* Efek interaktif: Canva akan sedikit terangkat ketika di-hover */
+/* Efek Interaktif Naik Saat Didekati Kursor */
 .canva-container:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.15),
+                0 0 30px -5px rgba(0, 229, 255, 0.1);
 }
 
-/* Pengaturan internal Iframe Canva */
+/* Iframe */
 .canva-container iframe {
     position: absolute;
     width: 100%;
@@ -147,4 +181,21 @@ body {
     border: none;
     padding: 0;
     margin: 0;
+}
+
+/* --- LOGIKA ANIMASI JALUR MASUK (KEYFRAMES) --- */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pengaturan Responsif untuk HP */
+@media (max-width: 768px) {
+    .content-wrapper { margin: 40px auto; }
+    .bb h2 { font-size: 28px; }
+    .canva-container { border-radius: 12px; }
 }
