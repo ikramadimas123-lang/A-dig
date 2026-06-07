@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A-DIG - Choose Ur Outfit</title>
+    <!-- Anda bisa menyesuaikan href ke "product.css" atau "styles.css" sesuai file Anda -->
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS Tambahan agar fungsi hidden dan tampilan dasar langsung bekerja */
+        .hidden { display: none !important; }
+        .correct { color: #2ecc71; font-weight: bold; }
+        .incorrect { color: #e74c3c; font-weight: bold; }
+        .feedback { margin: 15px 0; min-height: 20px; }
+        .btn { padding: 10px 20px; margin: 5px; cursor: pointer; border-radius: 5px; border: 1px solid #ccc; }
+    </style>
 </head>
 <body>
 
@@ -33,6 +42,7 @@
             <p style="color: #7f8c8d; margin-bottom: 20px;">Temukan gaya tren masa kinimu di sini!</p>
             <hr style="border: 0; height: 1px; background: #eee; margin-bottom: 30px;">
 
+            <!-- HALAMAN KUIS -->
             <div id="quiz-page" class="card-view">
                 <div id="quiz-progress" style="font-weight: 600; color: #666; margin-bottom: 10px; font-size: 14px;">Pertanyaan 1 dari 5</div>
                 
@@ -49,6 +59,7 @@
                 <button id="next-to-gender" class="btn hidden" onclick="goToGenderPage()" style="background-color: #000; border-color: #2AFF00; color: #fff;">Lanjut Pilih Gender ➡️</button>
             </div>
 
+            <!-- HALAMAN GENDER -->
             <div id="gender-page" class="card-view hidden">
                 <h3>Pilih Kategori Gender Kamu</h3>
                 <p style="margin-bottom: 20px; color: #95a5a6;">Sesuaikan rekomendasi tren dengan style kamu.</p>
@@ -56,17 +67,17 @@
                 <button class="btn btn-gender btn-female" onclick="showOutfits('wanita')">🙋‍♀️ PEREMPUAN</button>
             </div>
 
+            <!-- HALAMAN KATALOG -->
             <div id="catalog-page" class="hidden">
                 <button class="btn back-btn" onclick="goToGenderPage()">⬅️ Kembali Pilih Gender</button>
                 <h2 id="catalog-title" style="margin-bottom: 20px;">Katalog Outfit</h2>
-                <div id="outfit-container" class="grid-outfit">
-                    </div>
+                <div id="outfit-container" class="grid-outfit"></div>
             </div>
         </div>
     </main>
 
     <script>
-        // DATA KUIS (5 SOAL)
+        // DATA KUIS (5 SOAL LENGKAP)
         const daftarKuis = [
             {
                 pertanyaan: "Apakah Oversized T-shirt termasuk tren Streetwear kekinian?",
@@ -141,7 +152,7 @@
             document.getElementById("gender-page").classList.remove("hidden");
         }
 
-        // DATA OUTFIT PEREMPUAN (21 MACAM - TAMBAH 1 COQUETTE STYLE)
+        // DATA OUTFIT PEREMPUAN (21 MACAM LENGKAP)
         const outfitsWanita = [
             { nama: "Coquette Ribbon Aesthetic", desc: "Tren paling hits dengan detail pita-pita manis, atasan renda lembut, dan rok mini putih bergaya balerina feminin.", img: "https://images.unsplash.com/photo-1611042553975-08733608b2db?auto=format&fit=crop&w=400&q=80" },
             { nama: "Y2K Cargo Slouchy", desc: "Celana cargo longgar dipadukan dengan crop top bernuansa awal tahun 2000-an.", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80" },
@@ -166,7 +177,7 @@
             { nama: "Pastel Tie Dye Set", desc: "Satu set kaos dan celana corak tie-dye berwarna pastel yang colorful ceria.", img: "https://images.unsplash.com/photo-1617932681640-1f10738e4a90?auto=format&fit=crop&w=400&q=80" }
         ];
 
-        // DATA OUTFIT PRIA (21 MACAM - TAMBAH 1 GORPCORE TECHNICAL)
+        // DATA OUTFIT PRIA (21 MACAM LENGKAP)
         const outfitsPria = [
             { nama: "Gorpcore Hiking Look", desc: "Jaket waterproof outdoor premium tipe Arc'teryx dipadukan dengan tech-pants fungsional dan sepatu gunung Salomon hip.", img: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=400&q=80" },
             { nama: "Oversized Streetwear Tee", desc: "Kaos longgar katun berat dengan grafis simpel dipadu celana cargo.", img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80" },
@@ -191,6 +202,7 @@
             { nama: "Open Knit Cardigan", desc: "Kardigan rajut berongga longgar di atas tank top, tren pria paling hits.", img: "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=400&q=80" }
         ];
 
+        // FUNGSI MENAMPILKAN OUTFIT SESUAI PILIHAN GENDER
         function showOutfits(gender) {
             document.getElementById("gender-page").classList.add("hidden");
             const catalogPage = document.getElementById("catalog-page");
@@ -223,8 +235,10 @@
             });
         }
 
-        // Inisialisasi Kuis Saat Pertama Kali Muat Halaman
-        window.onload = tampilkanSoal;
+        // Inisialisasi awal saat halaman dimuat pertama kali
+        window.onload = function() {
+            tampilkanSoal();
+        };
     </script>
 </body>
 </html>
