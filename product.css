@@ -20,10 +20,10 @@ body {
 }
 
 /* ==========================================================================
-   --- NAVIGASI HEADER (A-DIG ORIGINAL) ---
+   --- NAVIGASI HEADER (A-DIG ORIGINAL DENGAN LAYOUT TENGAH) ---
    ========================================================================== */
-.aa {
-    display: flex;              
+header.aa {
+    display: flex;          
     justify-content: space-between; 
     align-items: center;         
     padding: 15px 10%;          
@@ -35,7 +35,7 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.02);
 }
 
-.aa h1 {
+header h1, .aa h1 {
     margin: 0;
     font-size: 32px; 
     font-weight: 700;
@@ -52,7 +52,7 @@ body {
     padding: 0;
 }
 
-.nav1 > li > a {
+.nav1 a, .nav1 > li > a {
     text-decoration: none;
     color: #1a1a1a;
     font-weight: 600;
@@ -60,7 +60,7 @@ body {
     transition: 0.3s ease; 
 }
 
-.nav1 > li > a:hover {
+.nav1 a:hover, .nav1 > li > a:hover {
     color: #2AFF00; 
 }
 
@@ -86,6 +86,10 @@ body {
     border: 1px solid #f0f0f0;
 }
 
+.li3 li {
+    padding: 0;
+}
+
 .li3 li a {
     color: #333;
     padding: 10px 20px;
@@ -94,6 +98,7 @@ body {
     font-size: 15px;
     font-weight: normal;
     transition: 0.2s;
+    text-align: left;
 }
 
 .li3 li a:hover {
@@ -344,7 +349,7 @@ body {
 }
 
 /* ==========================================================================
-   --- TEMA INTEGRASI: APLIKASI CHOOSE UR OUTFIT (SATU TEMA NEON) ---
+   --- TEMA INTEGRASI: APLIKASI CHOOSE UR OUTFIT (SATU TEMA MODERN NEON) ---
    ========================================================================== */
 
 /* --- WADAH UTAMA KONTEN APLIKASI OUTFIT --- */
@@ -366,6 +371,9 @@ main {
     box-shadow: 0 15px 40px rgba(0,0,0,0.03);
     border: 1px solid #f0f0f0;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .container h1 {
@@ -374,46 +382,78 @@ main {
     font-weight: 700;
     letter-spacing: -1.5px;
     margin-bottom: 10px;
+    background: linear-gradient(45deg, #23cc00, #00bfff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.container hr {
+.container hr, .divider {
     border: 0;
     height: 1px;
     background: #eaeaea;
+    width: 100%;
+    max-width: 600px;
     margin-bottom: 40px;
 }
 
-.hidden {
-    display: none !important;
-}
-
-/* --- TAMPILAN KUIS & PILIH GENDER --- */
+/* --- TAMPILAN MODUL CARD VIEW (Kuis & Gender) --- */
 .card-view {
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 20px;
+    padding: 40px;
     max-width: 550px;
-    margin: 0 auto;
-    padding: 20px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    margin: 20px auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s, border-color 0.3s;
 }
 
-.card-view h3 {
+.card-view:hover {
+    transform: translateY(-5px);
+    border-color: #2AFF00;
+}
+
+.quiz-meta {
+    font-weight: 600;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.quiz-title, .card-view h3 {
     font-size: 20px;
     font-weight: 600;
     color: #1a1a1a;
     line-height: 1.5;
     margin-bottom: 15px;
+    text-align: center;
 }
 
-/* --- BUTTON SYSTEM KEKINIAN --- */
+.quiz-options {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* --- BUTTON SYSTEM KEKINIAN & MODAL ACTION --- */
 .btn {
     font-family: 'Inter', sans-serif;
     background-color: #111111;
     color: #ffffff;
     border: 1px solid #222222;
     padding: 14px 28px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     border-radius: 10px;
     cursor: pointer;
-    margin: 10px;
+    margin: 8px;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -421,8 +461,31 @@ main {
     background-color: #ffffff;
     color: #000000;
     border-color: #1a1a1a;
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
     box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* Tombol Navigasi Lanjut Kuis */
+.btn-next {
+    background-color: #000000;
+    border: 2px solid #2AFF00;
+    color: #ffffff;
+}
+.btn-next:hover {
+    background-color: #2AFF00;
+    color: #000000;
+    box-shadow: 0 0 15px rgba(42, 255, 0, 0.3);
+}
+
+.btn-final {
+    background-color: #000000;
+    border: 2px solid #00bfff;
+    color: #ffffff;
+}
+.btn-final:hover {
+    background-color: #00bfff;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
 }
 
 /* Tombol Kategori Gender */
@@ -440,7 +503,6 @@ main {
     border: 2px solid #00bfff;
     color: #ffffff;
 }
-
 .btn-male:hover { 
     background-color: #00bfff; 
     color: #ffffff;
@@ -453,14 +515,13 @@ main {
     border: 2px solid #2AFF00;
     color: #ffffff;
 }
-
 .btn-female:hover { 
     background-color: #2AFF00; 
     color: #000000;
     box-shadow: 0 10px 25px rgba(42, 255, 0, 0.35);
 }
 
-/* Tombol Kembali */
+/* Tombol Kembali Red Alert */
 .back-btn {
     background-color: transparent;
     color: #666;
@@ -469,42 +530,51 @@ main {
     padding: 10px 20px;
     margin-bottom: 30px;
 }
-
 .back-btn:hover {
-    background-color: #fafafa;
-    color: #000;
-    border-color: #000;
+    background-color: #ff3b30;
+    color: #ffffff;
+    border-color: #ff3b30;
+    box-shadow: 0 0 15px rgba(255, 59, 48, 0.3);
 }
 
-/* --- FEEDBACK KUIS --- */
+/* --- FEEDBACK JAWABAN KUIS --- */
 .feedback {
     margin-top: 20px;
     margin-bottom: 20px;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 15px;
     padding: 15px;
     border-radius: 10px;
     display: inline-block;
+    line-height: 1.5;
+    min-height: 25px;
 }
 
 .correct { 
     color: #23cc00; 
     background-color: rgba(42, 255, 0, 0.05);
     border: 1px solid rgba(42, 255, 0, 0.2);
+    text-shadow: none;
 }
 
 .incorrect { 
     color: #ff3b30; 
     background-color: rgba(255, 59, 48, 0.05);
     border: 1px solid rgba(255, 59, 48, 0.2);
+    text-shadow: none;
 }
 
-/* --- GRID KATALOG OUTFIT REKOMENDASI --- */
+/* --- KATALOG REKAYASA GRID & KARTU REKOMENDASI --- */
+.catalog-section {
+    width: 100%;
+}
+
 .grid-outfit {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 35px;
     margin-top: 40px;
+    width: 100%;
 }
 
 .outfit-card {
@@ -515,6 +585,7 @@ main {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
+    text-align: left;
 }
 
 .outfit-card:hover {
@@ -574,6 +645,13 @@ main {
 .marquee-footer marquee {
     display: flex;
     align-items: center;
+}
+
+/* ==========================================================================
+   --- SYSTEM UTILITY FUNCTION ---
+   ========================================================================== */
+.hidden {
+    display: none !important;
 }
 
 /* ==========================================================================
