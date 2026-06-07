@@ -4,15 +4,204 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A-DIG - Choose Ur Outfit</title>
-    <!-- Anda bisa menyesuaikan href ke "product.css" atau "styles.css" sesuai file Anda -->
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* CSS Tambahan agar fungsi hidden dan tampilan dasar langsung bekerja */
+        /* --- DESAIN HIASAN & LAYOUT TENGAH (CENTERED) --- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d0f12;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header.aa {
+            width: 100%;
+            background: rgba(20, 24, 30, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1f2631;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 5px 0;
+            font-size: 24px;
+            letter-spacing: 2px;
+            color: #2AFF00;
+            text-shadow: 0 0 10px rgba(42, 255, 0, 0.3);
+        }
+
+        .nav1 {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav1 a {
+            color: #95a5a6;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav1 a:hover {
+            color: #2AFF00;
+        }
+
+        main {
+            width: 100%;
+            max-width: 1200px;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            text-align: center; /* Membuat semua teks utama di tengah */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #2AFF00, #00E5FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        /* Card View Desain */
+        .card-view {
+            background: #151a22;
+            border: 1px solid #222b36;
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 550px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin: 20px auto;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Membuat konten di dalam card ke tengah */
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card-view:hover {
+            transform: translateY(-5px);
+            border-color: #2AFF00;
+        }
+
+        /* Tombol Bergaya Modern */
+        .btn {
+            background: #1f2631;
+            color: #fff;
+            border: 1px solid #323d4e;
+            padding: 12px 24px;
+            margin: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #2AFF00;
+            color: #000;
+            border-color: #2AFF00;
+            box-shadow: 0 0 15px rgba(42, 255, 0, 0.4);
+            transform: scale(1.03);
+        }
+
+        .btn-gender {
+            width: 80%;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        /* Feedback Jawaban */
+        .feedback {
+            margin: 20px 0;
+            font-size: 15px;
+            min-height: 25px;
+            line-height: 1.5;
+        }
+        .correct { color: #2ecc71; text-shadow: 0 0 10px rgba(46, 204, 113, 0.2); }
+        .incorrect { color: #e74c3c; text-shadow: 0 0 10px rgba(231, 76, 60, 0.2); }
+
+        /* Grid Katalog Outfit */
+        .grid-outfit {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .outfit-card {
+            background: #151a22;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #222b36;
+            transition: all 0.3s;
+            text-align: left; /* Teks deskripsi baju tetap rapi dari kiri di dalam kartu */
+        }
+
+        .outfit-card:hover {
+            transform: translateY(-8px);
+            border-color: #00E5FF;
+            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.15);
+        }
+
+        .outfit-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-bottom: 1px solid #222b36;
+        }
+
+        .outfit-info {
+            padding: 15px;
+        }
+
+        .outfit-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .outfit-desc {
+            font-size: 13px;
+            color: #95a5a6;
+            line-height: 1.4;
+        }
+
         .hidden { display: none !important; }
-        .correct { color: #2ecc71; font-weight: bold; }
-        .incorrect { color: #e74c3c; font-weight: bold; }
-        .feedback { margin: 15px 0; min-height: 20px; }
-        .btn { padding: 10px 20px; margin: 5px; cursor: pointer; border-radius: 5px; border: 1px solid #ccc; }
+        
+        .back-btn {
+            background-color: transparent;
+            border-color: #e74c3c;
+            color: #e74c3c;
+        }
+        .back-btn:hover {
+            background-color: #e74c3c;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -24,13 +213,8 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="design.html">Design</a></li>
                 <li><a href="#">Product</a></li>
-                
                 <li class="li1">
                     <a href="#" class="li2"><span class="ee1">&hellip;</span></a>
-                    <ul class="li3">
-                        <li><a href="#">Language</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
                 </li>
             </ul>
         </nav>
@@ -40,15 +224,14 @@
         <div class="container">
             <h1>✨ Choose Ur Outfit ✨</h1>
             <p style="color: #7f8c8d; margin-bottom: 20px;">Temukan gaya tren masa kinimu di sini!</p>
-            <hr style="border: 0; height: 1px; background: #eee; margin-bottom: 30px;">
+            <hr style="border: 0; height: 1px; background: #222b36; width: 100%; max-width: 600px; margin-bottom: 30px;">
 
             <!-- HALAMAN KUIS -->
             <div id="quiz-page" class="card-view">
-                <div id="quiz-progress" style="font-weight: 600; color: #666; margin-bottom: 10px; font-size: 14px;">Pertanyaan 1 dari 5</div>
+                <div id="quiz-progress" style="font-weight: 600; color: #7f8c8d; margin-bottom: 10px; font-size: 14px;">Pertanyaan 1 dari 5</div>
+                <h3 id="quiz-question" style="margin: 10px 0; line-height: 1.4;">Apakah Oversized T-shirt termasuk tren Streetwear kekinian?</h3>
                 
-                <h3 id="quiz-question">Apakah Oversized T-shirt termasuk tren Streetwear kekinian?</h3>
-                
-                <div style="margin-top: 20px;">
+                <div style="margin-top: 15px; display: flex; justify-content: center; flex-wrap: wrap;">
                     <button class="btn" onclick="submitAnswer(true)">Ya, Benar Banget!</button>
                     <button class="btn" onclick="submitAnswer(false)">Bukan, Sudah Kuno</button>
                 </div>
@@ -62,22 +245,21 @@
             <!-- HALAMAN GENDER -->
             <div id="gender-page" class="card-view hidden">
                 <h3>Pilih Kategori Gender Kamu</h3>
-                <p style="margin-bottom: 20px; color: #95a5a6;">Sesuaikan rekomendasi tren dengan style kamu.</p>
-                <button class="btn btn-gender btn-male" onclick="showOutfits('pria')">🙋‍♂️ LAKI-LAKI</button>
-                <button class="btn btn-gender btn-female" onclick="showOutfits('wanita')">🙋‍♀️ PEREMPUAN</button>
+                <p style="margin-bottom: 20px; color: #95a5a6; font-size: 14px;">Sesuaikan rekomendasi tren dengan style kamu.</p>
+                <button class="btn btn-gender" onclick="showOutfits('pria')">🙋‍♂️ LAKI-LAKI</button>
+                <button class="btn btn-gender" onclick="showOutfits('wanita')">🙋‍♀️ PEREMPUAN</button>
             </div>
 
             <!-- HALAMAN KATALOG -->
-            <div id="catalog-page" class="hidden">
+            <div id="catalog-page" class="hidden" style="width: 100%;">
                 <button class="btn back-btn" onclick="goToGenderPage()">⬅️ Kembali Pilih Gender</button>
-                <h2 id="catalog-title" style="margin-bottom: 20px;">Katalog Outfit</h2>
+                <h2 id="catalog-title" style="margin: 25px 0; color: #fff;">Katalog Outfit</h2>
                 <div id="outfit-container" class="grid-outfit"></div>
             </div>
         </div>
     </main>
 
     <script>
-        // DATA KUIS (5 SOAL LENGKAP)
         const daftarKuis = [
             {
                 pertanyaan: "Apakah Oversized T-shirt termasuk tren Streetwear kekinian?",
@@ -118,7 +300,6 @@
             document.getElementById("quiz-progress").innerText = `Pertanyaan ${indeksKuisSekarang + 1} dari ${daftarKuis.length}`;
             document.getElementById("quiz-question").innerText = kuisAktif.pertanyaan;
             document.getElementById("quiz-feedback").innerHTML = "";
-            document.getElementById("quiz-feedback").className = "feedback";
             document.getElementById("next-quiz-btn").classList.add("hidden");
             document.getElementById("next-to-gender").classList.add("hidden");
         }
@@ -133,7 +314,6 @@
                 feedbackDiv.innerHTML = `<span class='incorrect'>${kuisAktif.pesanSalah}</span>`;
             }
 
-            // Atur tombol navigasi selanjutnya
             if (indeksKuisSekarang < daftarKuis.length - 1) {
                 document.getElementById("next-quiz-btn").classList.remove("hidden");
             } else {
@@ -152,7 +332,6 @@
             document.getElementById("gender-page").classList.remove("hidden");
         }
 
-        // DATA OUTFIT PEREMPUAN (21 MACAM LENGKAP)
         const outfitsWanita = [
             { nama: "Coquette Ribbon Aesthetic", desc: "Tren paling hits dengan detail pita-pita manis, atasan renda lembut, dan rok mini putih bergaya balerina feminin.", img: "https://images.unsplash.com/photo-1611042553975-08733608b2db?auto=format&fit=crop&w=400&q=80" },
             { nama: "Y2K Cargo Slouchy", desc: "Celana cargo longgar dipadukan dengan crop top bernuansa awal tahun 2000-an.", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80" },
@@ -177,7 +356,6 @@
             { nama: "Pastel Tie Dye Set", desc: "Satu set kaos dan celana corak tie-dye berwarna pastel yang colorful ceria.", img: "https://images.unsplash.com/photo-1617932681640-1f10738e4a90?auto=format&fit=crop&w=400&q=80" }
         ];
 
-        // DATA OUTFIT PRIA (21 MACAM LENGKAP)
         const outfitsPria = [
             { nama: "Gorpcore Hiking Look", desc: "Jaket waterproof outdoor premium tipe Arc'teryx dipadukan dengan tech-pants fungsional dan sepatu gunung Salomon hip.", img: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=400&q=80" },
             { nama: "Oversized Streetwear Tee", desc: "Kaos longgar katun berat dengan grafis simpel dipadu celana cargo.", img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80" },
@@ -202,7 +380,6 @@
             { nama: "Open Knit Cardigan", desc: "Kardigan rajut berongga longgar di atas tank top, tren pria paling hits.", img: "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=400&q=80" }
         ];
 
-        // FUNGSI MENAMPILKAN OUTFIT SESUAI PILIHAN GENDER
         function showOutfits(gender) {
             document.getElementById("gender-page").classList.add("hidden");
             const catalogPage = document.getElementById("catalog-page");
@@ -235,7 +412,6 @@
             });
         }
 
-        // Inisialisasi awal saat halaman dimuat pertama kali
         window.onload = function() {
             tampilkanSoal();
         };
