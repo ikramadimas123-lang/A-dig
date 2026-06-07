@@ -1,40 +1,163 @@
-<html>
+<!DOCTYPE html>
+<html lang="id">
 <head>
-<meta charset="utf-8">
-<title>Blank template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-DIG - Choose Ur Outfit</title>
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
 
-<!-- Load external CSS styles -->
- <link rel="stylesheet" href="product.css">
+    <header class="aa">
+        <h1>A-DIG</h1>
+        <nav>
+            <ul class="nav1">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="design.html">Design</a></li>
+                <li><a href="#">Product</a></li>
+                
+                <li class="li1">
+                    <a href="#" class="li2"><span class="ee1">&hellip;</span></a>
+                    <ul class="li3">
+                        <li><a href="#">Language</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
- </head>
+    <main>
+        <div class="container">
+            <h1>✨ Choose Ur Outfit ✨</h1>
+            <p style="color: #7f8c8d; margin-bottom: 20px;">Temukan gaya tren masa kinimu di sini!</p>
+            <hr style="border: 0; height: 1px; background: #eee; margin-bottom: 30px;">
 
- <body>
+            <div id="quiz-page" class="card-view">
+                <h3>Kuis Singkat: Apakah Oversized T-shirt termasuk tren Streetwear kekinian?</h3>
+                <div style="margin-top: 20px;">
+                    <button class="btn" onclick="checkAnswer(true)">Ya, Benar Banget!</button>
+                    <button class="btn" onclick="checkAnswer(false)">Bukan, Sudah Kuno</button>
+                </div>
+                <div id="quiz-feedback" class="feedback"></div>
+                <button id="next-to-gender" class="btn hidden" onclick="goToGenderPage()" style="background-color: #2ecc71;">Lanjut Pilih Gender ➡️</button>
+            </div>
 
+            <div id="gender-page" class="card-view hidden">
+                <h3>Pilih Kategori Gender Kamu</h3>
+                <p style="margin-bottom: 20px; color: #95a5a6;">Sesuaikan rekomendasi tren dengan style kamu.</p>
+                <button class="btn btn-gender btn-male" onclick="showOutfits('pria')">🙋‍♂️ LAKI-LAKI</button>
+                <button class="btn btn-gender btn-female" onclick="showOutfits('wanita')">🙋‍♀️ PEREMPUAN</button>
+            </div>
 
+            <div id="catalog-page" class="hidden">
+                <button class="btn back-btn" onclick="goToGenderPage()">⬅️ Kembali Pilih Gender</button>
+                <h2 id="catalog-title" style="margin-bottom: 20px;">Katalog Outfit</h2>
+                <div id="outfit-container" class="grid-outfit">
+                    </div>
+            </div>
+        </div>
+    </main>
 
- <h1>JUDUL</h1>
- <body>
-     <ul></li><a href="index.html">home | </a></li></li><a href="design.html">design | </a></li></li>product</li>
-     </ul>
- <marquee> Design by Ikram </marquee>
+    <script>
+        // Data 20 Outfit Kekinian Wanita
+        const outfitsWanita = [
+            { nama: "Y2K Cargo Slouchy", desc: "Celana cargo longgar dipadukan dengan crop top bernuansa awal tahun 2000-an.", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Oversized Blazer Set", desc: "Blazer ukuran besar dengan celana bahan senada untuk tampilan smart casual formal.", img: "https://images.unsplash.com/photo-1548624149-f9b1859aa7d0?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Korean Floral Dress", desc: "Dress motif bunga kecil dengan potongan midi khas cewek Korea aesthetic.", img: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Knit Vest & White Shirt", desc: "Rompi rajut yang dipadukan dengan kemeja putih oversized ala anak skena.", img: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Denim on Denim", desc: "Jaket denim tebal dipadukan dengan high-waist jeans berwarna senada.", img: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Cropped Cardigan", desc: "Cardigan rajut pendek berkancing besar dipadukan dengan loose jeans.", img: "https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Pleated Tennis Skirt Look", desc: "Rok tenis lipit dipadu dengan crewneck sweatshirt, sporty namun tetap manis.", img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Sage Green Aesthetic", desc: "Kombinasi pakaian bertema warna hijau sage yang menenangkan dan trendi.", img: "https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Athleisure Bike Shorts", desc: "Celana pendek ketat sepeda dengan hoodie oversized dan sepatu olahraga putih.", img: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Satin Slip Dress", desc: "Dress bahan satin mengkilap yang elegan untuk acara hangout malam formal.", img: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Tweed Jacket Look", desc: "Jaket bahan tweed bertekstur memberikan kesan mewah ala old-money.", img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Cozy Linen Outfit", desc: "Setelan kemeja dan celana pendek berbahan linen yang adem untuk musim panas.", img: "https://images.unsplash.com/photo-1509319117193-57bab727e09d?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Tiered Maxi Skirt", desc: "Rok panjang bertingkat dipadukan tank top hitam, berjiwa bohemian modern.", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Corset Top Style", desc: "Atasan model korset ketat dipadukan celana kulot lebar penyeimbang siluet.", img: "https://images.unsplash.com/photo-1554412933-514a83d2f3c8?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Puffer Jacket Hype", desc: "Jaket gelembung tebal gaya street fashion Tokyo yang hangat dan modis.", img: "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Monochrome Streetwear", desc: "Kombinasi serba hitam putih dari ujung kepala hingga kaki yang edgy.", img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Preppy Gingham Look", desc: "Pakaian bermotif kotak-kotak catur (gingham) memberikan impresi retro rapi.", img: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Boho Kimono Outer", desc: "Outer longgar bermotif etnik dipadu dengan celana jeans santai.", img: "https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Leather Jacket Bad Girl", desc: "Jaket kulit hitam berkilau memberikan aura tangguh nan stylish.", img: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Pastel Tie Dye Set", desc: "Satu set kaos dan celana corak tie-dye berwarna pastel yang colorful ceria.", img: "https://images.unsplash.com/photo-1617932681640-1f10738e4a90?auto=format&fit=crop&w=400&q=80" }
+        ];
 
-    <img src="lucu-dance.gif"> 
-  
-     <p>
-<br>hello my name is ravenclawn
-<br>aku adalah calon dokter dan pengusaha sleeping on the bad
-<br>lwlelele Teks adalah kumpulan kata yang 
-<br>tersusun untuk menyampaikan informasi, gagasan, atau perasaan. 
-<br>Isinya bisa bermacam-macam, seperti teks naratif yang bercerita, 
-<br>teks deskriptif yang menggambarkan sesuatu, teks eksposisi yang menjelaskan,
-<br>teks prosedur yang memberi langkah-langkah, dan teks argumentasiyang 
-<br> berisi pendapat. Setiap jenis teks memiliki tujuan dan struktur berbeda, 
-<br>tapi semuanya digunakan untuk berkomunikasi secara tertulis dengan pembaca.      
-     </p>
+        // Data 20 Outfit Kekinian Pria
+        const outfitsPria = [
+            { nama: "Oversized Streetwear Tee", desc: "Kaos longgar katun berat dengan grafis simpel dipadu celana cargo.", img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Minimalist Flannel Layering", desc: "Kemeja flanel kotak-kotak tidak dikancing, dengan kaos polos putih di dalam.", img: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Techwear Cargo Utility", desc: "Gaya taktis futuristik dominan hitam dengan kantong serbaguna melimpah.", img: "https://images.unsplash.com/photo-1617114919297-3c8ddb01f599?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Vintage Varsity Jacket", desc: "Jaket baseball bergaya retro Amerika klasik yang digemari anak muda.", img: "https://images.unsplash.com/photo-1621950513076-e44de9c89e9d?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Earth Tone Casual", desc: "Padu padan kemeja kasual berwarna cokelat tanah, krem, atau olive hangat.", img: "https://images.unsplash.com/photo-1618886614638-80e3c103d31a?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Corduroy Jacket Vibes", desc: "Jaket bahan korduroi bergaris memberikan tekstur estetik nan kasual.", img: "https://images.unsplash.com/photo-1611312449412-6cefac5dc3e4?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Korean Boyfriend Look", desc: "Celana bahan ankle-length dipadu sweater rajut rapi khas drakor.", img: "https://images.unsplash.com/photo-1610652420476-bf1059f33333?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Smart Casual Blazer", desc: "Blazer santai tanpa dasi dengan kaos dalaman demi tampilan semi-formal.", img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Denim Trucker Jacket", desc: "Jaket denim klasik abadi yang dipasangkan dengan celana chino hitam.", img: "https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Cozy Hoodie & Joggers", desc: "Setelan santai ternyaman untuk nongkrong malam atau WFH kilat.", img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Cuba Collar Summer Shirt", desc: "Kemeja kerah terbuka bermotif tropis atau garis, siap buat liburan.", img: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Bomber Jacket Edgy", desc: "Jaket bomber nilon dengan siluet bervolume yang memberikan kesan macho.", img: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Old Money Polo Look", desc: "Kaos polo rajut fit badan dipadu celana linen putih yang tampak berkelas.", img: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Skena Leather Biker", desc: "Jaket kulit tangguh ala pengendara motor dipadu boots tinggi.", img: "https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Athletic Sportswear", desc: "Jaket windbreaker parasut tipis dengan celana lari dinamis.", img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Stripped Sweater Retro", desc: "Sweater rajut motif garis-gari tebal horizontal ala indie rock 90an.", img: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Monochromatic Tech", desc: "Perpaduan rompi utilitas abu-abu gelap dengan bawahan senada.", img: "https://images.unsplash.com/photo-1505022610485-0249ba5b3675?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Relaxed Linen Suit", desc: "Setelan jas longgar bahan kain linen tipis tanpa struktur kaku.", img: "https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Graphic Sweatshirt Skater", desc: "Sweatshirt tebal tulisan retro lengkap bersama celana bahan gombrang.", img: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?auto=format&fit=crop&w=400&q=80" },
+            { nama: "Open Knit Cardigan", desc: "Kardigan rajut berongga longgar di atas tank top, tren pria paling hits.", img: "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=400&q=80" }
+        ];
 
-                                                                                                                                                                            
-                                                                                                                                                                                    
+        function checkAnswer(isTrue) {
+            const feedbackDiv = document.getElementById("quiz-feedback");
+            const nextBtn = document.getElementById("next-to-gender");
 
-</body>   
- 
+            if (isTrue) {
+                feedbackDiv.innerHTML = "<span class='correct'>✅ Benar! Oversized T-shirt adalah pilar utama fashion Streetwear saat ini.</span>";
+                nextBtn.classList.remove("hidden");
+            } else {
+                feedbackDiv.innerHTML = "<span class='incorrect'>❌ Salah. Oversized T-shirt justru merupakan tren streetwear masa kini yang sangat populer, bukan kuno! Yuk coba lanjut.</span>";
+                nextBtn.classList.remove("hidden");
+            }
+        }
+
+        function goToGenderPage() {
+            document.getElementById("quiz-page").classList.add("hidden");
+            document.getElementById("catalog-page").classList.add("hidden");
+            document.getElementById("gender-page").classList.remove("hidden");
+        }
+
+        function showOutfits(gender) {
+            document.getElementById("gender-page").classList.add("hidden");
+            const catalogPage = document.getElementById("catalog-page");
+            const catalogTitle = document.getElementById("catalog-title");
+            const container = document.getElementById("outfit-container");
+            
+            catalogPage.classList.remove("hidden");
+            container.innerHTML = ""; 
+
+            let dataOutfit = [];
+            if (gender === 'wanita') {
+                catalogTitle.innerText = "👗 Tren Outfit Kekinian Perempuan (20 Macam)";
+                dataOutfit = outfitsWanita;
+            } else {
+                catalogTitle.innerText = "🙋‍♂️ Tren Outfit Kekinian Laki-Laki (20 Macam)";
+                dataOutfit = outfitsPria;
+            }
+
+            dataOutfit.forEach(item => {
+                const itemHTML = `
+                    <div class="outfit-card">
+                        <img class="outfit-img" src="${item.img}" alt="${item.nama}">
+                        <div class="outfit-info">
+                            <div class="outfit-title">${item.nama}</div>
+                            <div class="outfit-desc">${item.desc}</div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += itemHTML;
+            });
+        }
+    </script>
+</body>
 </html>
