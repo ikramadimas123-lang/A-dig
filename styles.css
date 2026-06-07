@@ -1,13 +1,12 @@
-/* Place your CSS styles in this file */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* --- RESET STYLE --- */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #ffffff;
+    background-color: #fafafa; /* Mengubah background dasar sedikit ke abu abu super soft agar kartu putih lebih stand out */
     color: #1a1a1a;
     margin: 0; 
+    overflow-x: hidden;
 }
 
 /* --- NAVIGASI HEADER --- */
@@ -18,19 +17,24 @@ body {
     padding: 15px 10%;          
     background-color: #ffffff;    
     border-bottom: 1px solid #eee;
+    position: sticky; /* Membuat navbar menempel di atas saat di-scroll */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
 }
 
 .aa h1 {
     margin: 0;
-    font-size: 35px; 
-    font-weight: bold;
+    font-size: 32px; 
+    font-weight: 700;
     color: #000;
+    letter-spacing: -1px;
 }
 
 .nav1 {
     list-style: none;
     display: flex;
-    gap: 25px; 
+    gap: 30px; 
     align-items: center;
     margin: 0;
     padding: 0;
@@ -38,14 +42,14 @@ body {
 
 .nav1 > li > a {
     text-decoration: none;
-    color: black;
-    font-weight: bold;
-    font-size: 20px; 
-    transition: 0.3s; 
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 18px; 
+    transition: 0.3s ease; 
 }
 
 .nav1 > li > a:hover {
-    color: #888; 
+    color: #2AFF00; 
 }
 
 /* --- MENU DROPDOWN SYSTEM --- */
@@ -62,19 +66,20 @@ body {
     background-color: #ffffff; 
     list-style: none;
     padding: 10px 0;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
-    margin: 5px 0 0 0;
-    border-radius: 6px;
-    min-width: 140px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+    margin: 10px 0 0 0;
+    border-radius: 8px;
+    min-width: 150px;
     z-index: 100;
+    border: 1px solid #f0f0f0;
 }
 
 .li3 li a {
     color: #333;
-    padding: 8px 16px;
+    padding: 10px 20px;
     text-decoration: none;
     display: block;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: normal;
     transition: 0.2s;
 }
@@ -93,39 +98,101 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 60px 10%;
-    gap: 50px;
+    padding: 80px 10%;
+    gap: 60px;
+    background: radial-gradient(circle at 10% 20%, rgba(42, 255, 0, 0.03) 0%, transparent 40%);
 }
 
 .bb {
     flex: 1; 
     display: flex;      
     flex-direction: column; 
-    gap: 10px;              
+    gap: 8px;              
+}
+
+/* HIASAN BARU: Tag kecil di atas judul */
+.welcome-tag {
+    background-color: rgba(42, 255, 0, 0.1);
+    color: #23cc00;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    width: fit-content;
+    margin-bottom: 10px;
 }
 
 .bb h2, .bb h3, .bb h4, .bb h5 {
     margin: 0;           
 }
     
-.bb h2 { font-size: 25px; color: #2AFF00; margin-bottom: 6px; }
-.bb h3 { font-size: 45px; color: #000000; margin-bottom: 6px; }
-.bb h4 { font-size: 25px; color: #696969; margin-bottom: 15px; }
-.bb h5 { font-size: 18px; color: #555555; line-height: 1.6; }
+.bb h2 { font-size: 26px; color: #444; font-weight: 400; }
+.bb h3 { font-size: 48px; color: #000000; font-weight: 700; letter-spacing: -1px; }
+
+/* HIASAN BARU: Teks warna gradasi */
+.text-gradient {
+    background: linear-gradient(45deg, #23cc00, #00bfff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bb h4 { font-size: 24px; color: #666; font-weight: 500; margin-bottom: 10px; }
+.bb h5 { font-size: 16px; color: #666666; line-height: 1.7; font-weight: 400; }
 
 .hero-image-container {
     flex: 1; 
     display: flex;
     justify-content: center;
+    position: relative;
+}
+
+/* HIASAN BARU: Efek menyala di belakang foto utama */
+.image-glow-effect {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+}
+.image-glow-effect::before {
+    content: '';
+    position: absolute;
+    top: 10px; left: 10px; right: -10px; bottom: -10px;
+    background: linear-gradient(45deg, #2AFF00, #00bfff);
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0.3;
+    filter: blur(10px);
 }
 
 .hero-img {
     width: 100%;
-    max-width: 400px;     
-    height: 250px;        
-    border-radius: 12px;
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+    height: 280px;        
+    border-radius: 16px;
+    box-shadow: 0px 12px 30px rgba(0,0,0,0.15);
     object-fit: cover;    
+    transition: transform 0.4s ease;
+}
+.hero-img:hover {
+    transform: scale(1.02);
+}
+
+/* HIASAN BARU: Judul Seksi Konten (Team & Canva) */
+.section-title {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+.section-title h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111;
+    margin: 0;
+}
+.title-line {
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(90deg, #2AFF00, #00bfff);
+    margin: 10px auto 0 auto;
+    border-radius: 10px;
 }
 
 /* --- GRID UTAMA KARTU (2X2) --- */
@@ -133,103 +200,147 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
     gap: 40px; 
-    padding: 60px 10%; 
-    background-color: #fff;
+    padding: 30px 10% 60px 10%; 
+    background-color: transparent;
 }
 
 .cc1, .cc2, .cc3, .cc4 {
     display: flex; 
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #eaeaea; 
-    padding: 30px 0; 
-    gap: 20px;
-    transition: all 0.4s ease;
+    border-top: 2px solid #eaeaea; 
+    padding: 35px 0; 
+    gap: 25px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* HIASAN BARU: Efek interaktif hover kartu lebih dramatis */
 .cc1:hover, .cc2:hover, .cc3:hover, .cc4:hover {
-    transform: translateX(10px); 
-    border-top: 1px solid #000; 
+    transform: translateY(-5px); 
+    border-top: 2px solid #2AFF00; 
 }
 
 /* --- BLOK TEKS DENGAN BACKGROUND GAMBAR UTUH --- */
 .card-text {
-    flex: 1.8;                 /* Sedikit disesuaikan porsinya agar seimbang dengan foto yang membesar */
-    padding: 25px;             
-    border-radius: 12px;       
+    flex: 1.8;                 
+    padding: 30px 25px;              
+    border-radius: 16px;       
     background-size: cover;       
     background-position: center;  
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
 }
 
 /* Hanya judul (h3) dan label nomor yang berwarna putih langsung di atas gambar */
 .card-text h3, 
 .card-text .label {
     color: #ffffff !important; 
-    text-shadow: 0px 2px 4px rgba(0,0,0,0.5); /* Memberi bayangan tipis agar teks putih mudah dibaca */
+    text-shadow: 0px 2px 8px rgba(0,0,0,0.6); 
 }
 
 .label {
-    font-size: 13px;
+    font-size: 12px;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
     display: block;
-    margin-bottom: 5px;
+    color: #2AFF00 !important; /* Membuat nomor identitas berwarna kontras cerah */
 }
 
 .card-text h3 {
-    font-size: 26px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 700;
     margin: 0;
 }
 
 /* KOTAK PUTIH KHUSUS UNTUK TEKS PARAGRAF (P) */
 .card-text p {
-    font-size: 18px;           
+    font-size: 15px;           
     line-height: 1.6;          
     margin: 5px 0 0 0;
     text-align: justify;
-    background-color: #ffffff; /* Mengunci background paragraf tetap putih */
-    color: #1a1a1a !important; /* Mengubah warna teks paragraf menjadi gelap agar terbaca di atas putih */
-    padding: 15px;             /* Memberi ruang di dalam kotak putih */
-    border-radius: 8px;        /* Sudut kotak putih melengkung halus */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background-color: rgba(255, 255, 255, 0.95); /* Sedikit transparan mewah */
+    backdrop-filter: blur(5px); /* Efek kaca kekinian */
+    color: #222 !important; 
+    padding: 15px;             
+    border-radius: 12px;        
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* --- WADAH FOTO BULAT (SUDAH DIPERBESAR) --- */
+/* --- WADAH FOTO BULAT --- */
 .card-image {
-    flex: 1.2;                 /* Menaikkan porsi ruang untuk foto dari 1 menjadi 1.2 */
+    flex: 1.2;                 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .card-image img {
-    width: 180px;              /* Diperbesar dari 130px ke 180px */
-    height: 180px;             /* Diperbesar dari 130px ke 180px */
+    width: 170px;              
+    height: 170px;             
     border-radius: 50%;        
     object-fit: cover;         
-    border: 4px solid #eee;    /* Tebal border disesuaikan */
-    box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+    border: 5px solid #ffffff;    /* Diubah ke putih bersih agar kontras */
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.12);
+    transition: transform 0.4s ease;
+}
+/* Foto berputar sedikit saat di-hover */
+.cc1:hover .card-image img, 
+.cc2:hover .card-image img, 
+.cc3:hover .card-image img, 
+.cc4:hover .card-image img {
+    transform: scale(1.05) rotate(3deg);
 }
 
-/* --- DISTRIBUSI GAMBAR BACKGROUND MASING-MASING KARTU --- */
-/* Menggunakan linear-gradient yang lebih tipis (0.2) agar gambar aslinya terlihat lebih cerah */
-.cc1 .card-text { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('content.jpg'); }
-.cc2 .card-text { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('web.jpg'); }
-.cc3 .card-text { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('app.jpg'); }
-.cc4 .card-text { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('design.webp'); }
+/* --- BACKGROUND MASING-MASING KARTU --- */
+.cc1 .card-text { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('content.jpg'); }
+.cc2 .card-text { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('web.jpg'); }
+.cc3 .card-text { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('app.jpg'); }
+.cc4 .card-text { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('design.webp'); }
+
 /* --- EMBED CANVA --- */
 .ff {
     width: 100%;
-    max-width: 900px; 
-    margin: 40px auto; 
+    max-width: 850px; /* Diperkecil tipis dari 900px agar terlihat lebih proporsional */
+    margin: 30px auto 80px auto; 
     padding: 0 20px;   
 }
 
-/* --- RESPONSIVE MOBILE (KARTU TETAP KUNCI 2x2) --- */
+/* HIASAN BARU: Frame luar melengkung halus untuk Canva */
+.canva-wrapper-decoration {
+    position: relative; 
+    width: 100%; 
+    height: 0; 
+    padding-top: 56.25%; 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08); 
+    overflow: hidden; 
+    border-radius: 16px; /* Sudut melengkung halus modern */
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+.canva-wrapper-decoration:hover {
+    transform: translateY(-3px);
+}
+
+/* --- HIASAN BARU: RUNNING TEXT FOOTER --- */
+.marquee-footer {
+    background-color: #111111;
+    color: #ffffff;
+    padding: 12px 0;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.marquee-footer marquee {
+    display: flex;
+    align-items: center;
+}
+
+/* --- RESPONSIVE MOBILE --- */
 @media (max-width: 900px) {
     .hero-container {
         flex-direction: column-reverse; 
@@ -238,14 +349,15 @@ body {
     }
     
     .cc {
-        padding: 40px 10px; 
-        gap: 15px;          
+        grid-template-columns: 1fr; /* Di layar HP otomatis menjadi 1 kolom vertikal agar tidak sempit */
+        padding: 20px 20px; 
+        gap: 30px;          
     }
     
     .cc1, .cc2, .cc3, .cc4 {
         flex-direction: column-reverse; 
         align-items: center;            
-        padding: 15px 0;
+        padding: 20px 0;
     }
     
     .card-image {
