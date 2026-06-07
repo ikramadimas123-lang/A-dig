@@ -1,10 +1,9 @@
-/* --- RESET STYLE --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+/* --- RESET & FONTS --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-/* --- RESET STYLE --- */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #ffffff;
+    background-color: #fafafa; /* Diubah sedikit ke abu-abu super soft agar elemen putih lebih pop-out */
     color: #1a1a1a;
     margin: 0; 
 }
@@ -85,4 +84,67 @@ body {
 
 .li1:hover .li3 {
     display: block;
+}
+
+
+/* --- LAYOUT KONTEN UTAMA (BARU) --- */
+.content-wrapper {
+    max-width: 850px;       /* Membatasi lebar maksimal agar Canva tidak terlalu besar/lebar */
+    margin: 60px auto;      /* Memberikan jarak atas-bawah dan otomatis membuat konten di tengah */
+    padding: 0 20px;        /* Jarak aman di sisi kanan-kiri pada layar HP */
+    text-align: center;     /* Membuat semua teks di dalamnya otomatis ke tengah */
+}
+
+/* --- HIASAN JUDUL H2 (BARU) --- */
+.bb h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111111;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.5px;
+}
+
+/* Hiasan garis estetik di bawah tulisan Design Proyek */
+.bb .underline {
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(90deg, #2AFF00, #00E5FF); /* Menggunakan aksen warna neon dari hover dropdown-mu */
+    margin: 0 auto 40px auto; /* Membuat garis berada di tengah dan memberi jarak ke Canva */
+    border-radius: 10px;
+}
+
+/* --- CONTAINER CANVA DENGAN EFEK MODERN (BARU) --- */
+.canva-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;   /* Rasio 16:9 standar agar tampilan Canva presisi */
+    overflow: hidden;
+    border-radius: 16px;   /* Membuat sudut pinggiran Canva melengkung halus */
+    background-color: #fff;
+    
+    /* Efek bayangan (shadow) halus premium */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06), 
+                0 1px 3px rgba(0, 0, 0, 0.02);
+    
+    /* Efek animasi transisi saat kursor menyentuh elemen */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Efek interaktif: Canva akan sedikit terangkat ketika di-hover */
+.canva-container:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* Pengaturan internal Iframe Canva */
+.canva-container iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: none;
+    padding: 0;
+    margin: 0;
 }
